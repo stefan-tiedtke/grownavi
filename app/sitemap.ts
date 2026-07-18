@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { phases, problems, knowledge } from "@/lib/content";
 import { toolDefinitions } from "@/lib/tools";
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://grownavi.example";
+  const base = "https://www.grownavi.de";
   const staticPages = [
     "",
     "/anbauphasen",
