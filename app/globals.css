@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{--font-sans:"Avenir Next",Avenir,"Segoe UI",sans-serif;--font-serif:"Iowan Old Style",Georgia,serif;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:#fbf8ef}
+body{margin:0;color:#173f35;background:radial-gradient(circle at 90% 5%,rgba(143,174,145,.2),transparent 28%),#fbf8ef;font-family:var(--font-sans)}
+::selection{background:#d69b32;color:#173f35}
+a,button,input,select,textarea{outline-offset:3px}
+:focus-visible{outline:3px solid #d69b32}
+.container-page{@apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8}
+.card{@apply rounded-[1.75rem] border border-forest/10 bg-white/80 shadow-soft backdrop-blur-sm}
+.eyebrow{@apply text-xs font-bold uppercase tracking-[.18em] text-moss}
+.prose-grow h2{@apply mt-10 font-serif text-3xl font-semibold text-forest}.prose-grow h3{@apply mt-7 text-xl font-bold}.prose-grow p{@apply mt-3 leading-7 text-forest/75}.prose-grow ul{@apply mt-3 space-y-2 text-forest/75}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
