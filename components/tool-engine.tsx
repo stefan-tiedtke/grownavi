@@ -228,10 +228,28 @@ function Planner() {
           Alle Termine sind Schätzungen. Pflanzenentwicklung, Wetter und Genetik
           können den Verlauf verschieben.
         </Notice>
-        <div className="card p-6">
+        <div
+          className={`card p-6 transition-[background-color,border-color,box-shadow] duration-500 ${
+            hasSavedPlan
+              ? "border-moss/50"
+              : ""
+          }`}
+          style={
+            hasSavedPlan
+              ? {
+                  backgroundColor: "rgba(143, 174, 145, 0.32)",
+                  borderColor: "rgba(71, 107, 82, 0.5)",
+                  boxShadow: "0 18px 50px rgba(23, 63, 53, 0.12)",
+                }
+              : undefined
+          }
+        >
           <div className="flex items-center justify-between">
             <h2 className="font-serif text-3xl font-bold">Deine Zeitleiste</h2>
-            <Badge>{setting}</Badge>
+            <div className="flex flex-wrap justify-end gap-2">
+              {hasSavedPlan && <Badge>Persönlicher Grow-Plan</Badge>}
+              <Badge>{setting}</Badge>
+            </div>
           </div>
           <div className="mt-6 space-y-1">
             {hasValidStart ? (
