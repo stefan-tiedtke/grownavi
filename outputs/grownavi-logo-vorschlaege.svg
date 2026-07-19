@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="620" viewBox="0 0 1600 620" role="img" aria-labelledby="title desc">
+  <title id="title">Drei Logo-Vorschläge für GROWNAVI.de</title>
+  <desc id="desc">Kompassblatt, Standortblatt und Wegweiserblatt als grüne Vektorlogos auf cremefarbenen Karten.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#173f35" flood-opacity=".10"/>
+    </filter>
+    <linearGradient id="leafGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#74a977"/>
+      <stop offset="1" stop-color="#2f7654"/>
+    </linearGradient>
+    <path id="leaflet" d="M0 0 C-8-12-18-26-15-44 L-22-39 L-18-54 L-25-49 L-19-65 L-27-59 C-23-79-13-98 0-118 C13-98 23-79 27-59 L19-65 L25-49 L18-54 L22-39 L15-44 C18-26 8-12 0 0 Z"/>
+    <g id="fiveLeaf">
+      <use href="#leaflet" transform="rotate(-54) scale(.70 .76)"/>
+      <use href="#leaflet" transform="rotate(-27) scale(.88 .92)"/>
+      <use href="#leaflet"/>
+      <use href="#leaflet" transform="rotate(27) scale(.88 .92)"/>
+      <use href="#leaflet" transform="rotate(54) scale(.70 .76)"/>
+      <path d="M0 0V43" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <rect width="1600" height="620" fill="#f7f4ea"/>
+  <text x="70" y="70" fill="#173f35" font-family="Avenir Next,Segoe UI,sans-serif" font-size="28" font-weight="800" letter-spacing="4">GROWNAVI.DE · LOGO-RICHTUNGEN</text>
+
+  <!-- 1: Compass leaf -->
+  <g transform="translate(55 110)" filter="url(#shadow)">
+    <rect width="470" height="450" rx="36" fill="#fffdf7" stroke="#173f35" stroke-opacity=".10"/>
+    <g transform="translate(235 186)">
+      <circle r="112" fill="none" stroke="#173f35" stroke-width="7"/>
+      <circle r="97" fill="#dce9d6"/>
+      <path d="M0-112V-91M0 91V112M-112 0H-91M91 0H112" stroke="#d69b32" stroke-width="7" stroke-linecap="round"/>
+      <path d="M0-91 16-61 0-68-16-61Z" fill="#d69b32"/>
+      <g transform="translate(0 43) scale(.72)" fill="url(#leafGreen)" color="#2f7654">
+        <use href="#fiveLeaf"/>
+      </g>
+      <circle r="7" fill="#173f35"/>
+    </g>
+    <text x="235" y="347" text-anchor="middle" fill="#173f35" font-family="Iowan Old Style,Georgia,serif" font-size="39" font-weight="700">GROWNAVI<tspan fill="#d69b32">.de</tspan></text>
+    <text x="235" y="390" text-anchor="middle" fill="#557168" font-family="Avenir Next,Segoe UI,sans-serif" font-size="18" font-weight="700" letter-spacing="2">01 · KOMPASSBLATT</text>
+    <text x="235" y="422" text-anchor="middle" fill="#71857e" font-family="Avenir Next,Segoe UI,sans-serif" font-size="15">präzise · vertrauenswürdig · markant</text>
+  </g>
+
+  <!-- 2: Map pin leaf -->
+  <g transform="translate(565 110)" filter="url(#shadow)">
+    <rect width="470" height="450" rx="36" fill="#fffdf7" stroke="#173f35" stroke-opacity=".10"/>
+    <g transform="translate(235 174)">
+      <path d="M0-118C-69-118-121-67-121-2c0 83 121 158 121 158S121 81 121-2C121-67 69-118 0-118Z" fill="#173f35"/>
+      <circle cy="-10" r="83" fill="#f7f4ea"/>
+      <g transform="translate(0 30) scale(.58)" fill="url(#leafGreen)" color="#2f7654">
+        <use href="#fiveLeaf"/>
+      </g>
+      <circle cy="121" r="8" fill="#d69b32"/>
+    </g>
+    <text x="235" y="347" text-anchor="middle" fill="#173f35" font-family="Iowan Old Style,Georgia,serif" font-size="39" font-weight="700">GROWNAVI<tspan fill="#d69b32">.de</tspan></text>
+    <text x="235" y="390" text-anchor="middle" fill="#557168" font-family="Avenir Next,Segoe UI,sans-serif" font-size="18" font-weight="700" letter-spacing="2">02 · STANDORTBLATT</text>
+    <text x="235" y="422" text-anchor="middle" fill="#71857e" font-family="Avenir Next,Segoe UI,sans-serif" font-size="15">digital · direkt · app-ähnlich</text>
+  </g>
+
+  <!-- 3: Route leaf -->
+  <g transform="translate(1075 110)" filter="url(#shadow)">
+    <rect width="470" height="450" rx="36" fill="#fffdf7" stroke="#173f35" stroke-opacity=".10"/>
+    <g transform="translate(235 180)">
+      <path d="M-105 88C-63 47-61 4-22-14 15-31 46-3 76-35" fill="none" stroke="#d69b32" stroke-width="11" stroke-linecap="round" stroke-dasharray="2 22"/>
+      <circle cx="-105" cy="88" r="13" fill="#173f35" stroke="#fffdf7" stroke-width="6"/>
+      <path d="M76-55c-21 0-37 15-37 35 0 27 37 51 37 51s37-24 37-51c0-20-16-35-37-35Z" fill="#173f35"/>
+      <circle cx="76" cy="-20" r="10" fill="#d69b32"/>
+      <g transform="translate(-20 22) rotate(-8) scale(.82)" fill="url(#leafGreen)" color="#2f7654">
+        <use href="#fiveLeaf"/>
+      </g>
+    </g>
+    <text x="235" y="347" text-anchor="middle" fill="#173f35" font-family="Iowan Old Style,Georgia,serif" font-size="39" font-weight="700">GROWNAVI<tspan fill="#d69b32">.de</tspan></text>
+    <text x="235" y="390" text-anchor="middle" fill="#557168" font-family="Avenir Next,Segoe UI,sans-serif" font-size="18" font-weight="700" letter-spacing="2">03 · WEGBLATT</text>
+    <text x="235" y="422" text-anchor="middle" fill="#71857e" font-family="Avenir Next,Segoe UI,sans-serif" font-size="15">freundlich · dynamisch · erzählerisch</text>
+  </g>
+</svg>

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="620" viewBox="0 0 1600 620" role="img" aria-labelledby="title desc">
+  <title id="title">Drei weitere Logo-Vorschläge für GROWNAVI.de</title>
+  <desc id="desc">Kursblatt, Navisiegel und Pfadblatt mit langen schlanken Cannabisblattfingern.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#173f35" flood-opacity=".09"/>
+    </filter>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#78aa75"/>
+      <stop offset="1" stop-color="#27694a"/>
+    </linearGradient>
+    <path id="blade" d="M0 0C-2-18-6-34-5-50L-9-46-7-59-11-54-8-70-12-64-9-82-13-76C-11-98-6-119 0-142 6-119 11-98 13-76L9-82 12-64 8-70 11-54 7-59 9-46C6-34 2-18 0 0Z"/>
+    <g id="leaf7">
+      <use href="#blade" transform="rotate(-66) scale(.55 .62)"/>
+      <use href="#blade" transform="rotate(-44) scale(.70 .77)"/>
+      <use href="#blade" transform="rotate(-22) scale(.86 .91)"/>
+      <use href="#blade"/>
+      <use href="#blade" transform="rotate(22) scale(.86 .91)"/>
+      <use href="#blade" transform="rotate(44) scale(.70 .77)"/>
+      <use href="#blade" transform="rotate(66) scale(.55 .62)"/>
+    </g>
+    <g id="leaf5">
+      <use href="#blade" transform="rotate(-55) scale(.62 .70)"/>
+      <use href="#blade" transform="rotate(-28) scale(.82 .88)"/>
+      <use href="#blade"/>
+      <use href="#blade" transform="rotate(28) scale(.82 .88)"/>
+      <use href="#blade" transform="rotate(55) scale(.62 .70)"/>
+    </g>
+    <g id="name">
+      <text x="235" y="347" text-anchor="middle" fill="#173f35" font-family="Iowan Old Style,Georgia,serif" font-size="39" font-weight="700">GROWNAVI<tspan fill="#d69b32">.de</tspan></text>
+    </g>
+  </defs>
+
+  <rect width="1600" height="620" fill="#f7f4ea"/>
+  <text x="70" y="70" fill="#173f35" font-family="Avenir Next,Segoe UI,sans-serif" font-size="28" font-weight="800" letter-spacing="4">GROWNAVI.DE · LOGO-RICHTUNGEN III</text>
+
+  <!-- 1: Course leaf, airy line logo -->
+  <g transform="translate(55 110)" filter="url(#shadow)">
+    <rect width="470" height="450" rx="36" fill="#fffdf7" stroke="#173f35" stroke-opacity=".10"/>
+    <g transform="translate(235 195)">
+      <g transform="translate(0 43) scale(.70)" fill="none" stroke="#2d7452" stroke-width="4.5" stroke-linejoin="round">
+        <use href="#leaf7"/>
+      </g>
+      <path d="M0 75V-104" stroke="#d69b32" stroke-width="6" stroke-linecap="round"/>
+      <path d="M0-121 12-94 0-100-12-94Z" fill="#d69b32"/>
+      <circle cy="76" r="7" fill="#173f35"/>
+      <path d="M-111 71A127 127 0 0 0 111 71" fill="none" stroke="#173f35" stroke-opacity=".18" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <use href="#name"/>
+    <text x="235" y="390" text-anchor="middle" fill="#557168" font-family="Avenir Next,Segoe UI,sans-serif" font-size="18" font-weight="700" letter-spacing="2">01 · KURSBLATT</text>
+    <text x="235" y="422" text-anchor="middle" fill="#71857e" font-family="Avenir Next,Segoe UI,sans-serif" font-size="15">filigran · hochwertig · ruhig</text>
+  </g>
+
+  <!-- 2: Navigation seal -->
+  <g transform="translate(565 110)" filter="url(#shadow)">
+    <rect width="470" height="450" rx="36" fill="#fffdf7" stroke="#173f35" stroke-opacity=".10"/>
+    <g transform="translate(235 190)">
+      <path d="M0-118 96-59 96 59 0 118-96 59-96-59Z" fill="#173f35"/>
+      <path d="M0-99 79-50 79 50 0 99-79 50-79-50Z" fill="#edf3e9"/>
+      <g transform="translate(0 39) scale(.61)" fill="url(#leaf)">
+        <use href="#leaf7"/>
+      </g>
+      <path d="M0 39V77" stroke="#2d7452" stroke-width="5" stroke-linecap="round"/>
+      <path d="M0-99 10-78 0-83-10-78Z" fill="#d69b32"/>
+      <circle cx="-79" cy="50" r="7" fill="#d69b32"/>
+    </g>
+    <use href="#name"/>
+    <text x="235" y="390" text-anchor="middle" fill="#557168" font-family="Avenir Next,Segoe UI,sans-serif" font-size="18" font-weight="700" letter-spacing="2">02 · NAVISIEGEL</text>
+    <text x="235" y="422" text-anchor="middle" fill="#71857e" font-family="Avenir Next,Segoe UI,sans-serif" font-size="15">kompakt · prägnant · icon-tauglich</text>
+  </g>
+
+  <!-- 3: Stem becomes a route -->
+  <g transform="translate(1075 110)" filter="url(#shadow)">
+    <rect width="470" height="450" rx="36" fill="#fffdf7" stroke="#173f35" stroke-opacity=".10"/>
+    <g transform="translate(235 180)">
+      <g transform="translate(0 43) scale(.75)" fill="url(#leaf)">
+        <use href="#leaf5"/>
+      </g>
+      <path d="M0 43C0 82-48 78-48 111-48 136-16 137 8 137 47 137 67 116 67 91" fill="none" stroke="#2d7452" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="-48" cy="111" r="8" fill="#d69b32" stroke="#fffdf7" stroke-width="3"/>
+      <path d="M67 77 79 99 67 94 55 99Z" fill="#173f35"/>
+      <path d="M-112-52A124 124 0 0 1 111-52" fill="none" stroke="#d69b32" stroke-opacity=".55" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <use href="#name"/>
+    <text x="235" y="390" text-anchor="middle" fill="#557168" font-family="Avenir Next,Segoe UI,sans-serif" font-size="18" font-weight="700" letter-spacing="2">03 · PFADBLATT</text>
+    <text x="235" y="422" text-anchor="middle" fill="#71857e" font-family="Avenir Next,Segoe UI,sans-serif" font-size="15">organisch · freundlich · unverwechselbar</text>
+  </g>
+</svg>

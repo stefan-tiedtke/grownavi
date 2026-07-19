@@ -9,7 +9,6 @@ import {
   NotebookPen,
   Search,
   ShieldCheck,
-  Sprout,
   Wrench,
   X,
 } from "lucide-react";
@@ -27,6 +26,30 @@ const links = [
   [/^\/mein-grow/, "Mein Grow", "/mein-grow"],
   [/^\/faq/, "FAQ", "/faq"],
 ] as const;
+
+function CannabisLeafLogo({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      className={className}
+      viewBox="-100 -105 200 215"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M0 62C-2 30-3-7 0-91C3-7 2 30 0 62" />
+      <path d="M-3 35C-24 12-43-19-57-67C-25-40-9-9-3 35" />
+      <path d="M3 35C24 12 43-19 57-67C25-40 9-9 3 35" />
+      <path d="M-7 47C-34 36-60 17-84-18C-48-4-22 17-7 47" />
+      <path d="M7 47C34 36 60 17 84-18C48-4 22 17 7 47" />
+      <path d="M-8 55C-31 55-53 48-72 34C-44 35-22 42-8 55" />
+      <path d="M8 55C31 55 53 48 72 34C44 35 22 42 8 55" />
+      <path d="M0 58V91" />
+    </svg>
+  );
+}
 
 export function Header() {
   const path = usePathname();
@@ -46,7 +69,7 @@ export function Header() {
             className="flex items-center gap-2 font-serif text-xl font-bold"
           >
             <span className="grid size-9 place-items-center rounded-full bg-forest text-cream">
-              <Sprout className="size-5" />
+              <CannabisLeafLogo className="size-6" />
             </span>
             GROWNAVI.de
           </Link>
@@ -124,7 +147,7 @@ export function Footer() {
       <div className="container-page grid gap-10 md:grid-cols-[1.3fr_1fr_1fr]">
         <div>
           <div className="flex items-center gap-2 font-serif text-2xl font-bold">
-            <Sprout />
+            <CannabisLeafLogo className="size-7" />
             GROWNAVI
           </div>
           <p className="mt-4 max-w-md leading-7 text-cream/70">

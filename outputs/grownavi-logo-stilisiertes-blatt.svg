@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+  <title id="title">GROWNAVI.de – stilisiertes Cannabisblatt</title>
+  <desc id="desc">Reduziertes cremefarbenes Cannabisblatt als Linienzeichen in einem dunkelgrünen Kreis, kombiniert mit dem Schriftzug GROWNAVI.de.</desc>
+  <rect width="1200" height="480" rx="36" fill="#fbf8ef"/>
+
+  <!-- Vergrößerte Darstellung des Zeichens -->
+  <circle cx="235" cy="240" r="132" fill="#173f35"/>
+  <g transform="translate(235 258)" fill="none" stroke="#fbf8ef" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Mittlerer Blattfinger -->
+    <path d="M0 62 C-2 30 -3 -7 0 -91 C3 -7 2 30 0 62"/>
+    <!-- Innere Blattfinger -->
+    <path d="M-3 35 C-24 12 -43 -19 -57 -67 C-25 -40 -9 -9 -3 35"/>
+    <path d="M3 35 C24 12 43 -19 57 -67 C25 -40 9 -9 3 35"/>
+    <!-- Äußere Blattfinger -->
+    <path d="M-7 47 C-34 36 -60 17 -84 -18 C-48 -4 -22 17 -7 47"/>
+    <path d="M7 47 C34 36 60 17 84 -18 C48 -4 22 17 7 47"/>
+    <!-- Kleine untere Blattfinger -->
+    <path d="M-8 55 C-31 55 -53 48 -72 34 C-44 35 -22 42 -8 55"/>
+    <path d="M8 55 C31 55 53 48 72 34 C44 35 22 42 8 55"/>
+    <!-- Blattstiel -->
+    <path d="M0 58 V91"/>
+  </g>
+
+  <!-- Wortmarke -->
+  <text x="435" y="228" fill="#173f35" font-family="Iowan Old Style, Georgia, serif" font-size="86" font-weight="700" letter-spacing="-2">GROWNAVI<tspan fill="#557d63">.de</tspan></text>
+  <text x="440" y="282" fill="#557d63" font-family="Avenir Next, Avenir, Segoe UI, sans-serif" font-size="21" font-weight="600" letter-spacing="4">VOM SAMEN BIS ZUR ERNTE</text>
+
+  <!-- Originalgröße für den Website-Header -->
+  <g transform="translate(440 350)">
+    <circle cx="18" cy="18" r="18" fill="#173f35"/>
+    <g transform="translate(18 20.5) scale(.128)" fill="none" stroke="#fbf8ef" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 62 C-2 30 -3 -7 0 -91 C3 -7 2 30 0 62"/>
+      <path d="M-3 35 C-24 12 -43 -19 -57 -67 C-25 -40 -9 -9 -3 35"/>
+      <path d="M3 35 C24 12 43 -19 57 -67 C25 -40 9 -9 3 35"/>
+      <path d="M-7 47 C-34 36 -60 17 -84 -18 C-48 -4 -22 17 -7 47"/>
+      <path d="M7 47 C34 36 60 17 84 -18 C48 -4 22 17 7 47"/>
+      <path d="M-8 55 C-31 55 -53 48 -72 34 C-44 35 -22 42 -8 55"/>
+      <path d="M8 55 C31 55 53 48 72 34 C44 35 22 42 8 55"/>
+      <path d="M0 58 V91"/>
+    </g>
+    <text x="48" y="26" fill="#173f35" font-family="Iowan Old Style, Georgia, serif" font-size="25" font-weight="700">GROWNAVI.de</text>
+  </g>
+  <text x="440" y="414" fill="#557d63" font-family="Avenir Next, Avenir, Segoe UI, sans-serif" font-size="16">Darstellung in der tatsächlichen Größe des Website-Kopfs</text>
+</svg>
