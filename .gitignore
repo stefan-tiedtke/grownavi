@@ -1,6 +1,7 @@
 node_modules
 .next
 .next-build
+.next-root-owned-backup-*
 coverage
 .env*.local
 *.log
