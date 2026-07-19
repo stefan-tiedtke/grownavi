@@ -1,10 +1,11 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import {
   ArrowLeft,
   CheckCircle2,
   Save,
+  Trash2,
 } from "lucide-react";
 import {
   Area,
@@ -88,6 +89,26 @@ function Planner() {
   const [auto, setAuto] = useState(false);
   const [veg, setVeg] = useState(4);
   const [flower, setFlower] = useState(8);
+  const [storageStatus, setStorageStatus] = useState("");
+  const [hasSavedPlan, setHasSavedPlan] = useState(false);
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("grownavi_plan");
+      if (!raw) return;
+      const saved = JSON.parse(raw) as Record<string, unknown>;
+      if (typeof saved.start === "string" && isValidDateInput(saved.start))
+        setStart(saved.start);
+      if (saved.setting === "indoor" || saved.setting === "outdoor")
+        setSetting(saved.setting);
+      if (typeof saved.auto === "boolean") setAuto(saved.auto);
+      if (typeof saved.veg === "number") setVeg(saved.veg);
+      if (typeof saved.flower === "number") setFlower(saved.flower);
+      setHasSavedPlan(true);
+      setStorageStatus("Dein zuletzt gespeicherter Plan wurde geladen.");
+    } catch {
+      localStorage.removeItem("grownavi_plan");
+    }
+  }, []);
   const hasValidStart = isValidDateInput(start);
   const plan = useMemo(
     () =>
@@ -99,8 +120,22 @@ function Planner() {
   const save = () => {
     localStorage.setItem(
       "grownavi_plan",
-      JSON.stringify({ start, setting, auto, veg, flower }),
+      JSON.stringify({
+        start,
+        setting,
+        auto,
+        veg,
+        flower,
+        savedAt: new Date().toISOString(),
+      }),
     );
+    setHasSavedPlan(true);
+    setStorageStatus("Dein Plan wurde lokal in diesem Browser gespeichert.");
+  };
+  const removeSavedPlan = () => {
+    localStorage.removeItem("grownavi_plan");
+    setHasSavedPlan(false);
+    setStorageStatus("Der lokal gespeicherte Plan wurde gelöscht.");
   };
   return (
     <div className="grid gap-6 lg:grid-cols-[.75fr_1.25fr]">
@@ -162,10 +197,31 @@ function Planner() {
             onChange={(e) => setFlower(Number(e.target.value))}
           />
         </Field>
-        <Button type="submit">
-          <Save className="size-4" />
-          Plan lokal speichern
-        </Button>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <Button type="submit">
+            <Save className="size-4" />
+            Plan lokal speichern
+          </Button>
+          {hasSavedPlan && (
+            <Button
+              type="button"
+              onClick={removeSavedPlan}
+              className="border border-forest/20 bg-transparent text-forest hover:bg-sage/15"
+            >
+              <Trash2 className="size-4" />
+              Gespeicherten Plan löschen
+            </Button>
+          )}
+        </div>
+        {storageStatus && (
+          <p
+            role="status"
+            className="flex items-start gap-2 rounded-2xl bg-sage/15 p-3 text-sm font-semibold text-forest"
+          >
+            <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-moss" />
+            {storageStatus}
+          </p>
+        )}
       </form>
       <div className="space-y-5">
         <Notice>
@@ -777,7 +833,28 @@ function Drying() {
     [rh, setRh] = useState(60),
     [smell, setSmell] = useState("unauffällig"),
     [twigs, setTwigs] = useState("biegsam"),
-    [note, setNote] = useState("");
+    [note, setNote] = useState(""),
+    [storageStatus, setStorageStatus] = useState(""),
+    [hasSavedObservation, setHasSavedObservation] = useState(false);
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("grownavi_drying");
+      if (!raw) return;
+      const saved = JSON.parse(raw) as Record<string, unknown>;
+      if (typeof saved.date === "string") setDate(saved.date);
+      if (typeof saved.temp === "number") setTemp(saved.temp);
+      if (typeof saved.rh === "number") setRh(saved.rh);
+      if (typeof saved.smell === "string") setSmell(saved.smell);
+      if (typeof saved.twigs === "string") setTwigs(saved.twigs);
+      if (typeof saved.note === "string") setNote(saved.note);
+      setHasSavedObservation(true);
+      setStorageStatus(
+        "Deine zuletzt gespeicherte Beobachtung wurde geladen.",
+      );
+    } catch {
+      localStorage.removeItem("grownavi_drying");
+    }
+  }, []);
   const days = Math.max(
     0,
     Math.floor(
@@ -790,7 +867,7 @@ function Drying() {
       : rh < 48 || temp > 24
         ? "Möglicherweise zu schnelle Trocknung"
         : "Verlauf weiter beobachten";
-  const save = () =>
+  const save = () => {
     localStorage.setItem(
       "grownavi_drying",
       JSON.stringify({
@@ -803,6 +880,16 @@ function Drying() {
         savedAt: new Date().toISOString(),
       }),
     );
+    setHasSavedObservation(true);
+    setStorageStatus(
+      "Deine Beobachtung wurde lokal in diesem Browser gespeichert.",
+    );
+  };
+  const removeSavedObservation = () => {
+    localStorage.removeItem("grownavi_drying");
+    setHasSavedObservation(false);
+    setStorageStatus("Die lokal gespeicherte Beobachtung wurde gelöscht.");
+  };
   return (
     <div className="grid gap-6 lg:grid-cols-2">
       <form
@@ -857,10 +944,31 @@ function Drying() {
             placeholder="Geruch, Oberfläche, Konsistenz, Auffälligkeiten …"
           />
         </Field>
-        <Button type="submit">
-          <Save className="size-4" />
-          Beobachtung lokal speichern
-        </Button>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <Button type="submit">
+            <Save className="size-4" />
+            Beobachtung lokal speichern
+          </Button>
+          {hasSavedObservation && (
+            <Button
+              type="button"
+              onClick={removeSavedObservation}
+              className="border border-forest/20 bg-transparent text-forest hover:bg-sage/15"
+            >
+              <Trash2 className="size-4" />
+              Beobachtung löschen
+            </Button>
+          )}
+        </div>
+        {storageStatus && (
+          <p
+            role="status"
+            className="flex items-start gap-2 rounded-2xl bg-sage/15 p-3 text-sm font-semibold text-forest"
+          >
+            <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-moss" />
+            {storageStatus}
+          </p>
+        )}
       </form>
       <div className="space-y-5">
         <Result
