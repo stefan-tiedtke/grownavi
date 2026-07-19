@@ -48,7 +48,7 @@ export function Header() {
             <span className="grid size-9 place-items-center rounded-full bg-forest text-cream">
               <Sprout className="size-5" />
             </span>
-            GROWNAVI
+            GROWNAVI.de
           </Link>
           <nav
             aria-label="Hauptnavigation"
