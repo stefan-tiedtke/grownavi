@@ -13,6 +13,10 @@ import {
   X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  GROW_PROJECTS_CHANGED_EVENT,
+  loadProjects,
+} from "@/lib/storage";
 import { Button, Notice } from "./ui";
 
 const links = [
@@ -51,9 +55,30 @@ function CannabisLeafLogo({ className }: { className?: string }) {
   );
 }
 
+function ActiveGrowIndicator() {
+  return (
+    <span
+      className="size-2.5 shrink-0 rounded-full bg-red-600 shadow-[0_0_0_3px_rgba(220,38,38,0.15)]"
+      aria-hidden="true"
+    />
+  );
+}
+
 export function Header() {
   const path = usePathname();
   const [open, setOpen] = useState(false);
+  const [hasActiveGrow, setHasActiveGrow] = useState(false);
+  useEffect(() => {
+    const refreshIndicator = () =>
+      setHasActiveGrow(loadProjects().some((project) => !project.demo));
+    refreshIndicator();
+    window.addEventListener(GROW_PROJECTS_CHANGED_EVENT, refreshIndicator);
+    window.addEventListener("storage", refreshIndicator);
+    return () => {
+      window.removeEventListener(GROW_PROJECTS_CHANGED_EVENT, refreshIndicator);
+      window.removeEventListener("storage", refreshIndicator);
+    };
+  }, []);
   return (
     <>
       <a
@@ -81,12 +106,18 @@ export function Header() {
               <Link
                 key={href}
                 className={cn(
-                  "rounded-full px-3 py-2 text-sm font-semibold transition hover:bg-sage/15",
+                  "inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold transition hover:bg-sage/15",
                   match.test(path) ? "bg-forest text-cream" : "text-forest/75",
                 )}
                 href={href}
               >
                 {label}
+                {href === "/mein-grow" && hasActiveGrow && (
+                  <>
+                    <ActiveGrowIndicator />
+                    <span className="sr-only">Aktives Grow-Projekt</span>
+                  </>
+                )}
               </Link>
             ))}
           </nav>
@@ -111,7 +142,15 @@ export function Header() {
                 className="flex min-h-11 items-center justify-between rounded-xl px-3 font-semibold hover:bg-sage/15"
                 href={href}
               >
-                {label}
+                <span className="flex items-center gap-2">
+                  {label}
+                  {href === "/mein-grow" && hasActiveGrow && (
+                    <>
+                      <ActiveGrowIndicator />
+                      <span className="sr-only">Aktives Grow-Projekt</span>
+                    </>
+                  )}
+                </span>
                 <ChevronRight className="size-4" />
               </Link>
             ))}
@@ -133,7 +172,15 @@ export function Header() {
             href={String(href)}
             className="flex min-h-12 flex-col items-center justify-center text-[10px] font-bold"
           >
-            <Icon className="size-4" />
+            <span className="relative">
+              <Icon className="size-4" />
+              {href === "/mein-grow" && hasActiveGrow && (
+                <span className="absolute -right-2 -top-1">
+                  <ActiveGrowIndicator />
+                  <span className="sr-only">Aktives Grow-Projekt</span>
+                </span>
+              )}
+            </span>
             {String(label)}
           </Link>
         ))}
