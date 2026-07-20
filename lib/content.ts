@@ -275,7 +275,7 @@ export const knowledge = [
     topic: "Start",
     phase: "Alle",
     excerpt:
-      "Die wichtigsten Entscheidungen für einen überschaubaren, legalen ersten Grow.",
+      "Ein ruhiger Einstieg in die wichtigsten Entscheidungen für deinen ersten überschaubaren und legalen Grow.",
   },
   {
     slug: "indoor-oder-outdoor",
@@ -283,7 +283,7 @@ export const knowledge = [
     topic: "Anbauart",
     phase: "Planung",
     excerpt:
-      "Kontrolle, Aufwand und natürliche Bedingungen ehrlich vergleichen.",
+      "Finde in Ruhe heraus, ob kontrollierte Bedingungen oder ein Platz unter freiem Himmel besser zu dir passen.",
   },
   {
     slug: "autoflower-oder-photoperiodisch",
@@ -291,21 +291,23 @@ export const knowledge = [
     topic: "Genetik",
     phase: "Planung",
     excerpt:
-      "Lebenszyklus, Steuerbarkeit und typische Unterschiede verständlich erklärt.",
+      "Zwei Lebenszyklen, unterschiedliche Stärken: So findest du die Genetik, die zu deinem Alltag und deinem Platz passt.",
   },
   {
     slug: "licht-verstehen",
     title: "Licht, PPFD und DLI",
     topic: "Licht",
     phase: "Wachstum",
-    excerpt: "Messwerte einordnen, ohne Scheingenauigkeit oder starre Rezepte.",
+    excerpt:
+      "Lerne Lichtwerte verständlich zu lesen und zugleich auf das zu achten, was deine Pflanzen dir zeigen.",
   },
   {
     slug: "klima-und-vpd",
     title: "Klima und VPD",
     topic: "Klima",
     phase: "Alle",
-    excerpt: "Wie Temperatur, Feuchte und Blattklima zusammenspielen.",
+    excerpt:
+      "Temperatur, Luftfeuchte und sanfte Luftbewegung bilden gemeinsam das Wohlfühlklima deiner Pflanzen.",
   },
   {
     slug: "richtig-giessen",
@@ -313,7 +315,7 @@ export const knowledge = [
     topic: "Wasser",
     phase: "Alle",
     excerpt:
-      "Topfgewicht, Substrat und Pflanzensignale statt starrer Kalender.",
+      "Mit Topfgewicht, Substratgefühl und etwas Geduld entwickelst du ein verlässliches Gespür fürs Gießen.",
   },
   {
     slug: "naehrstoffe",
@@ -321,7 +323,7 @@ export const knowledge = [
     topic: "Pflege",
     phase: "Wachstum",
     excerpt:
-      "Makro- und Mikronährstoffe, EC, pH und typische Fehlinterpretationen.",
+      "Versorge deine Pflanzen aufmerksam und maßvoll, ohne jedem verfärbten Blatt sofort mit mehr Dünger zu begegnen.",
   },
   {
     slug: "hygiene",
@@ -329,7 +331,7 @@ export const knowledge = [
     topic: "Sicherheit",
     phase: "Alle",
     excerpt:
-      "Prävention, Werkzeuge, elektrische Sicherheit und kindergeschützte Lagerung.",
+      "Einfache, feste Routinen halten deinen Anbaubereich sauber, sicher und angenehm überschaubar.",
   },
   {
     slug: "mythen",
@@ -337,6 +339,6 @@ export const knowledge = [
     topic: "Grundlagen",
     phase: "Alle",
     excerpt:
-      "Warum mehr Wasser, mehr Licht oder mehr Dünger selten automatisch besser ist.",
+      "Wir räumen freundlich mit verbreiteten Irrtümern auf – damit Beobachtung wichtiger wird als vermeintliche Geheimrezepte.",
   },
 ];
