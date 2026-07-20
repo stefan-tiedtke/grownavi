@@ -30,6 +30,7 @@ export function GrowJournal() {
     [kind, setKind] = useState<"Notiz" | "Gießen" | "Düngung" | "Phase">(
       "Notiz",
     ),
+    [taskText, setTaskText] = useState(""),
     [error, setError] = useState(""),
     [photoUrl, setPhotoUrl] = useState("");
   const fileRef = useRef<HTMLInputElement>(null);
@@ -79,6 +80,14 @@ export function GrowJournal() {
     });
     setEntry("");
     setError("");
+  };
+  const addTask = () => {
+    const text = taskText.trim();
+    if (!active || !text) return;
+    update({
+      tasks: [...active.tasks, { id: id(), text, done: false }],
+    });
+    setTaskText("");
   };
   const download = () => {
     const blob = new Blob([exportProjects(projects)], {
@@ -338,19 +347,24 @@ export function GrowJournal() {
                     </label>
                   ))}
                 </div>
-                <button
-                  onClick={() =>
-                    update({
-                      tasks: [
-                        ...active.tasks,
-                        { id: id(), text: "Neue Aufgabe prüfen", done: false },
-                      ],
-                    })
-                  }
-                  className="mt-4 text-sm font-bold"
+                <form
+                  className="mt-4 flex flex-col gap-3 sm:flex-row"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    addTask();
+                  }}
                 >
-                  + Aufgabe ergänzen
-                </button>
+                  <Input
+                    value={taskText}
+                    onChange={(e) => setTaskText(e.target.value)}
+                    placeholder="Neue Aufgabe benennen …"
+                    aria-label="Name der neuen Aufgabe"
+                  />
+                  <Button type="submit" disabled={!taskText.trim()}>
+                    <Plus className="size-4" />
+                    Aufgabe ergänzen
+                  </Button>
+                </form>
             </div>
             <div className="card p-6">
               <h2 className="font-serif text-2xl font-bold">
