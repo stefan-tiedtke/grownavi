@@ -25,6 +25,7 @@ const links = [
   [/^\/probleme/, "Probleme erkennen", "/probleme"],
   [/^\/werkzeuge/, "Werkzeuge", "/werkzeuge"],
   [/^\/wissen/, "Wissen", "/wissen"],
+  [/^\/glossar/, "Glossar", "/glossar"],
   [/^\/mein-grow/, "Mein Grow", "/mein-grow"],
   [/^\/faq/, "FAQ", "/faq"],
 ] as const;
@@ -207,6 +208,7 @@ export function Footer() {
             <Link href="/sortenkunde">Sortenkunde</Link>
             <Link href="/werkzeuge">Werkzeuge</Link>
             <Link href="/wissen">Wissensbereich</Link>
+            <Link href="/glossar">Glossar</Link>
             <Link href="/mein-grow">Mein Grow</Link>
           </div>
         </div>
@@ -286,6 +288,7 @@ export function PageIntro({
       "/probleme": "Probleme erkennen",
       "/werkzeuge": "Werkzeuge",
       "/wissen": "Wissen",
+      "/glossar": "Glossar",
       "/mein-grow": "Mein Grow",
       "/faq": "FAQ",
       "/rechtliches": "Rechtliches & Verantwortung",

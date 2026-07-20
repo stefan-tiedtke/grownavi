@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/probleme",
     "/werkzeuge",
     "/wissen",
+    "/glossar",
     "/mein-grow",
     "/faq",
     "/rechtliches",
