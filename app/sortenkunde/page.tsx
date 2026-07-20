@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   title: "Sortenkunde: Indica, Sativa, Hybrid & Terpene",
   description:
     "Traditionelle Cannabis-Kategorien, Aromaprofile, Einflussfaktoren auf die Wirkung und bekannte Klassiker verständlich und kritisch erklärt.",
+  alternates: { canonical: "/sortenkunde" },
 };
 
 const categories = [
@@ -181,9 +182,7 @@ export default function Page() {
                 <h3 className="mt-2 font-serif text-3xl font-bold">
                   {category.name}
                 </h3>
-                <p className="mt-4 leading-7 text-forest/70">
-                  {category.text}
-                </p>
+                <p className="mt-4 leading-7 text-forest/70">{category.text}</p>
                 <p className="mt-5 border-l-2 border-amber pl-4 text-sm leading-6 text-forest/65">
                   {category.caveat}
                 </p>
@@ -225,9 +224,7 @@ export default function Page() {
                   className="rounded-2xl border border-cream/10 bg-cream/5 p-5"
                 >
                   <h3 className="font-bold text-amber">{aroma.title}</h3>
-                  <p className="mt-2 text-sm font-semibold">
-                    {aroma.terpenes}
-                  </p>
+                  <p className="mt-2 text-sm font-semibold">{aroma.terpenes}</p>
                   <p className="mt-2 text-sm leading-6 text-cream/60">
                     {aroma.examples}
                   </p>
@@ -319,7 +316,8 @@ export default function Page() {
             </h2>
             <p className="mt-3 text-sm leading-6 text-forest/65">
               Die Seite verbindet traditionelle Sortenbegriffe mit dem heutigen
-              Forschungsstand. Wirkungsaussagen sind keine medizinische Beratung.
+              Forschungsstand. Wirkungsaussagen sind keine medizinische
+              Beratung.
             </p>
           </div>
           <ul className="grid gap-3">

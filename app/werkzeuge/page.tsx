@@ -4,9 +4,10 @@ import { ArrowRight } from "lucide-react";
 import { PageIntro, LocalStorageNotice } from "@/components/site-shell";
 import { toolDefinitions } from "@/lib/tools";
 export const metadata: Metadata = {
-  title: "Werkzeuge",
+  title: "Cannabis Grow-Werkzeuge",
   description:
     "Grow-Planer, VPD-Rechner, Lichtplaner, Gießhilfe, Symptom-Finder und Ernte- sowie Trocknungsassistent.",
+  alternates: { canonical: "/werkzeuge" },
 };
 export default function Page() {
   return (

@@ -1,3 +1,31 @@
-import type {Metadata} from "next";import {PageIntro} from "@/components/site-shell";import {PhaseGrid} from "@/components/content-cards";import {Notice} from "@/components/ui";
-export const metadata:Metadata={title:"Anbauphasen",description:"Alle Lebensphasen einer Cannabispflanze verständlich erklärt – vom Samen bis zur Lagerung."};
-export default function Page(){return <><PageIntro eyebrow="Der Lebenszyklus" title="Jede Phase verstehen. Ruhiger entscheiden." description="Zehn Kapitel begleiten dich durch den vollständigen Lebenszyklus. Beobachtungen zählen dabei mehr als starre Kalenderwerte."/><section className="container-page"><Notice>Alle Zeit-, Klima-, Licht- und Nährstoffangaben sind allgemeine Orientierungswerte. Genetik, Substrat, Umgebung und Anbaumethode können den tatsächlichen Bedarf deutlich verändern.</Notice><div className="mt-8"><PhaseGrid/></div></section></>}
+import type { Metadata } from "next";
+import { PageIntro } from "@/components/site-shell";
+import { PhaseGrid } from "@/components/content-cards";
+import { Notice } from "@/components/ui";
+export const metadata: Metadata = {
+  title: "Cannabis-Anbauphasen",
+  description:
+    "Alle Lebensphasen einer Cannabispflanze verständlich erklärt – vom Samen über Wachstum und Blüte bis zur Ernte und Lagerung.",
+  alternates: { canonical: "/anbauphasen" },
+};
+export default function Page() {
+  return (
+    <>
+      <PageIntro
+        eyebrow="Der Lebenszyklus"
+        title="Jede Phase verstehen. Ruhiger entscheiden."
+        description="Zehn Kapitel begleiten dich durch den vollständigen Lebenszyklus. Beobachtungen zählen dabei mehr als starre Kalenderwerte."
+      />
+      <section className="container-page">
+        <Notice>
+          Alle Zeit-, Klima-, Licht- und Nährstoffangaben sind allgemeine
+          Orientierungswerte. Genetik, Substrat, Umgebung und Anbaumethode
+          können den tatsächlichen Bedarf deutlich verändern.
+        </Notice>
+        <div className="mt-8">
+          <PhaseGrid />
+        </div>
+      </section>
+    </>
+  );
+}

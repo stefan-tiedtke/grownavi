@@ -13,10 +13,8 @@ import {
   X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import {
-  GROW_PROJECTS_CHANGED_EVENT,
-  loadProjects,
-} from "@/lib/storage";
+import { GROW_PROJECTS_CHANGED_EVENT, loadProjects } from "@/lib/storage";
+import { Breadcrumbs } from "./breadcrumbs";
 import { Button, Notice } from "./ui";
 
 const links = [
@@ -279,9 +277,29 @@ export function PageIntro({
   title: string;
   description: string;
 }) {
+  const path = usePathname();
+  const breadcrumbLabel =
+    {
+      "/anbauphasen": "Anbauphasen",
+      "/grundlagen": "Grundlagen",
+      "/sortenkunde": "Sortenkunde",
+      "/probleme": "Probleme erkennen",
+      "/werkzeuge": "Werkzeuge",
+      "/wissen": "Wissen",
+      "/mein-grow": "Mein Grow",
+      "/faq": "FAQ",
+      "/rechtliches": "Rechtliches & Verantwortung",
+      "/datenschutz": "Datenschutz",
+    }[path] ?? title.replace(/\.$/, "");
   return (
     <section className="container-page py-14 sm:py-20">
-      <span className="eyebrow">{eyebrow}</span>
+      <Breadcrumbs
+        items={[
+          { name: "Startseite", href: "/" },
+          { name: breadcrumbLabel, href: path },
+        ]}
+      />
+      <span className="eyebrow mt-6 block">{eyebrow}</span>
       <h1 className="mt-4 max-w-4xl font-serif text-4xl font-semibold leading-[1.05] sm:text-6xl">
         {title}
       </h1>

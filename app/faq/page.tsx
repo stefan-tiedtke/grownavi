@@ -1,1 +1,64 @@
-import type{Metadata}from"next";import{PageIntro}from"@/components/site-shell";import{FAQ}from"@/components/ui";export const metadata:Metadata={title:"FAQ",description:"Häufige Fragen zu GROWNAVI, Datenschutz, Richtwerten und legalem Eigenanbau."};const items=[{q:"Für wen ist GROWNAVI gedacht?",a:"Ausschließlich für volljährige Menschen, die Cannabis im Rahmen der für sie geltenden Gesetze privat anbauen dürfen."},{q:"Sind Klima- und Lichtwerte verbindlich?",a:"Nein. Sie sind allgemeine Orientierungsbereiche. Genetik, Phänotyp, Substrat, Messposition und Methode verändern den Bedarf."},{q:"Wo werden Tagebuchdaten gespeichert?",a:"Ausschließlich im localStorage dieses Browsers. Ein Löschen der Browserdaten kann auch dein Tagebuch entfernen; exportiere deshalb regelmäßig eine JSON-Sicherung."},{q:"Warum nennt der Symptom-Finder mehrere Ursachen?",a:"Weil Gießfehler, pH, Licht, Wurzeln und Nährstoffe ähnliche Symptome erzeugen können. Eine eindeutige Ferndiagnose wäre unseriös."},{q:"Braucht die Website Cookies?",a:"Nein. Die erste Version nutzt keine Tracker und keine Marketing-Cookies. Nur funktionale lokale Speicherung hält Hinweisstatus und freiwillig eingegebene Daten fest."},{q:"Ist das Rechtsberatung?",a:"Nein. Die Rechtslage kann sich ändern und unterscheidet sich je nach Land und Region. Prüfe selbst die für dich geltenden Regeln."}];export default function Page(){const json={"@context":"https://schema.org","@type":"FAQPage",mainEntity:items.map(x=>({"@type":"Question",name:x.q,acceptedAnswer:{"@type":"Answer",text:x.a}}))};return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(json)}}/><PageIntro eyebrow="Kurz und verständlich" title="Häufige Fragen." description="Antworten zu Richtwerten, lokaler Speicherung, Sicherheit und verantwortungsvollem Umgang."/><section className="container-page"><div className="card p-6 sm:p-10"><FAQ items={items}/></div></section></>}
+import type { Metadata } from "next";
+import { PageIntro } from "@/components/site-shell";
+import { FAQ } from "@/components/ui";
+export const metadata: Metadata = {
+  title: "FAQ zum Cannabis-Eigenanbau",
+  description:
+    "Häufige Fragen zu GROWNAVI, Datenschutz, Anbau-Richtwerten und verantwortungsvollem legalen Cannabis-Eigenanbau.",
+  alternates: { canonical: "/faq" },
+};
+const items = [
+  {
+    q: "Für wen ist GROWNAVI gedacht?",
+    a: "Ausschließlich für volljährige Menschen, die Cannabis im Rahmen der für sie geltenden Gesetze privat anbauen dürfen.",
+  },
+  {
+    q: "Sind Klima- und Lichtwerte verbindlich?",
+    a: "Nein. Sie sind allgemeine Orientierungsbereiche. Genetik, Phänotyp, Substrat, Messposition und Methode verändern den Bedarf.",
+  },
+  {
+    q: "Wo werden Tagebuchdaten gespeichert?",
+    a: "Ausschließlich im localStorage dieses Browsers. Ein Löschen der Browserdaten kann auch dein Tagebuch entfernen; exportiere deshalb regelmäßig eine JSON-Sicherung.",
+  },
+  {
+    q: "Warum nennt der Symptom-Finder mehrere Ursachen?",
+    a: "Weil Gießfehler, pH, Licht, Wurzeln und Nährstoffe ähnliche Symptome erzeugen können. Eine eindeutige Ferndiagnose wäre unseriös.",
+  },
+  {
+    q: "Braucht die Website Cookies?",
+    a: "Nein. Die erste Version nutzt keine Tracker und keine Marketing-Cookies. Nur funktionale lokale Speicherung hält Hinweisstatus und freiwillig eingegebene Daten fest.",
+  },
+  {
+    q: "Ist das Rechtsberatung?",
+    a: "Nein. Die Rechtslage kann sich ändern und unterscheidet sich je nach Land und Region. Prüfe selbst die für dich geltenden Regeln.",
+  },
+];
+export default function Page() {
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((x) => ({
+      "@type": "Question",
+      name: x.q,
+      acceptedAnswer: { "@type": "Answer", text: x.a },
+    })),
+  };
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
+      />
+      <PageIntro
+        eyebrow="Kurz und verständlich"
+        title="Häufige Fragen."
+        description="Antworten zu Richtwerten, lokaler Speicherung, Sicherheit und verantwortungsvollem Umgang."
+      />
+      <section className="container-page">
+        <div className="card p-6 sm:p-10">
+          <FAQ items={items} />
+        </div>
+      </section>
+    </>
+  );
+}

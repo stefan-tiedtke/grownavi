@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowLeft, BookOpen, CheckCircle2 } from "lucide-react";
+import { BookOpen, CheckCircle2 } from "lucide-react";
 import { knowledge } from "@/lib/content";
 import { Notice } from "@/components/ui";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 
 export function generateStaticParams() {
   return knowledge.map((x) => ({ slug: x.slug }));
@@ -19,10 +19,12 @@ export async function generateMetadata({
   return {
     title: article?.title,
     description: article?.excerpt,
+    alternates: { canonical: `/wissen/${slug}` },
     openGraph: {
       title: article?.title,
       description: article?.excerpt,
       type: "article",
+      url: `/wissen/${slug}`,
     },
   };
 }
@@ -254,10 +256,13 @@ export default async function Page({
   return (
     <article>
       <header className="container-page py-16">
-        <Link href="/wissen" className="inline-flex gap-2 text-sm font-bold">
-          <ArrowLeft className="size-4" />
-          Wissensbereich
-        </Link>
+        <Breadcrumbs
+          items={[
+            { name: "Startseite", href: "/" },
+            { name: "Wissen", href: "/wissen" },
+            { name: article.title, href: `/wissen/${slug}` },
+          ]}
+        />
         <p className="eyebrow mt-10">
           {article.topic} · {article.phase}
         </p>
