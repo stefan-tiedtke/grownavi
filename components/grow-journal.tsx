@@ -5,6 +5,7 @@ import {
   Download,
   FlaskConical,
   Leaf,
+  PencilLine,
   Plus,
   Save,
   Trash2,
@@ -31,6 +32,7 @@ export function GrowJournal() {
       "Notiz",
     ),
     [taskText, setTaskText] = useState(""),
+    [showProjectIndicatorHint, setShowProjectIndicatorHint] = useState(false),
     [error, setError] = useState(""),
     [photoUrl, setPhotoUrl] = useState("");
   const fileRef = useRef<HTMLInputElement>(null);
@@ -66,6 +68,7 @@ export function GrowJournal() {
     };
     commit([...projects, p]);
     setActiveId(p.id);
+    setShowProjectIndicatorHint(true);
   };
   const addEntry = () => {
     if (!active || entry.trim().length < 3) {
@@ -192,6 +195,33 @@ export function GrowJournal() {
         </div>
       </aside>
       <div>
+        {showProjectIndicatorHint && (
+          <div
+            role="status"
+            className="mb-6 flex items-start justify-between gap-4 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm leading-6 text-forest"
+          >
+            <p className="flex items-start gap-3">
+              <span
+                className="mt-2 size-2.5 shrink-0 rounded-full bg-red-600 shadow-[0_0_0_3px_rgba(220,38,38,0.15)]"
+                aria-hidden="true"
+              />
+              <span>
+                <strong>Dein Grow-Projekt ist jetzt aktiv.</strong> Der rote
+                Punkt am Menüpunkt „Mein Grow“ zeigt dir, dass aktuell ein
+                eigenes Projekt in deinem Grow-Tagebuch besteht. Wenn du dein
+                letztes Projekt löschst, verschwindet der Punkt wieder.
+              </span>
+            </p>
+            <button
+              type="button"
+              onClick={() => setShowProjectIndicatorHint(false)}
+              className="shrink-0 rounded-full px-2 font-bold text-forest/60 transition hover:bg-white hover:text-forest"
+              aria-label="Hinweis schließen"
+            >
+              Schließen
+            </button>
+          </div>
+        )}
         {!active ? (
           <div className="card grid min-h-80 place-items-center p-8 text-center">
             <div>
@@ -208,14 +238,27 @@ export function GrowJournal() {
           <div className="space-y-6">
             <div className="card p-6">
               <div className="flex flex-wrap items-start justify-between gap-4">
-                <div>
+                <div className="min-w-0 flex-1">
                   {active.demo && <Badge>Beispielprojekt</Badge>}
+                  <label
+                    className="mt-3 flex items-center gap-2 text-sm font-bold text-forest"
+                    htmlFor={`project-name-${active.id}`}
+                  >
+                    <PencilLine className="size-4 text-moss" />
+                    Projektname
+                  </label>
                   <Input
-                    aria-label="Pflanzenname"
-                    className="mt-3 border-0 bg-transparent p-0 font-serif text-3xl font-bold"
+                    id={`project-name-${active.id}`}
+                    className="mt-2 border-moss/30 bg-white px-4 font-serif text-2xl font-bold focus:border-moss sm:text-3xl"
                     value={active.name}
                     onChange={(e) => update({ name: e.target.value })}
                   />
+                  <p className="mt-2 text-xs leading-5 text-forest/55">
+                    {active.name === "Mein neuer Grow"
+                      ? "Klicke in das Feld und überschreibe „Mein neuer Grow“ mit deinem eigenen Projektnamen."
+                      : "Du kannst den Projektnamen jederzeit direkt in diesem Feld ändern."}{" "}
+                    Änderungen werden automatisch lokal gespeichert.
+                  </p>
                   <Input
                     aria-label="Sorte oder Genetik"
                     className="mt-1 border-0 bg-transparent p-0 text-forest/60"
@@ -237,7 +280,8 @@ export function GrowJournal() {
                   Lokale Bildvorschau
                 </label>
                 <p className="mt-1 text-xs text-forest/55">
-                  Das Bild wird nicht hochgeladen und nur bis zum Neuladen angezeigt.
+                  Das Bild wird nicht hochgeladen und nur bis zum Neuladen
+                  angezeigt.
                 </p>
                 <input
                   id="grow-photo"
@@ -321,50 +365,48 @@ export function GrowJournal() {
               </p>
             </div>
             <div className="card p-6">
-                <h2 className="font-serif text-2xl font-bold">
-                  Offene Aufgaben
-                </h2>
-                <div className="mt-5 space-y-2">
-                  {active.tasks.map((t) => (
-                    <label
-                      className="flex min-h-11 items-center gap-3 rounded-xl bg-sage/10 p-3"
-                      key={t.id}
-                    >
-                      <input
-                        type="checkbox"
-                        checked={t.done}
-                        onChange={() =>
-                          update({
-                            tasks: active.tasks.map((x) =>
-                              x.id === t.id ? { ...x, done: !x.done } : x,
-                            ),
-                          })
-                        }
-                      />
-                      <span className={t.done ? "line-through opacity-50" : ""}>
-                        {t.text}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-                <form
-                  className="mt-4 flex flex-col gap-3 sm:flex-row"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    addTask();
-                  }}
-                >
-                  <Input
-                    value={taskText}
-                    onChange={(e) => setTaskText(e.target.value)}
-                    placeholder="Neue Aufgabe benennen …"
-                    aria-label="Name der neuen Aufgabe"
-                  />
-                  <Button type="submit" disabled={!taskText.trim()}>
-                    <Plus className="size-4" />
-                    Aufgabe ergänzen
-                  </Button>
-                </form>
+              <h2 className="font-serif text-2xl font-bold">Offene Aufgaben</h2>
+              <div className="mt-5 space-y-2">
+                {active.tasks.map((t) => (
+                  <label
+                    className="flex min-h-11 items-center gap-3 rounded-xl bg-sage/10 p-3"
+                    key={t.id}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={t.done}
+                      onChange={() =>
+                        update({
+                          tasks: active.tasks.map((x) =>
+                            x.id === t.id ? { ...x, done: !x.done } : x,
+                          ),
+                        })
+                      }
+                    />
+                    <span className={t.done ? "line-through opacity-50" : ""}>
+                      {t.text}
+                    </span>
+                  </label>
+                ))}
+              </div>
+              <form
+                className="mt-4 flex flex-col gap-3 sm:flex-row"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  addTask();
+                }}
+              >
+                <Input
+                  value={taskText}
+                  onChange={(e) => setTaskText(e.target.value)}
+                  placeholder="Neue Aufgabe benennen …"
+                  aria-label="Name der neuen Aufgabe"
+                />
+                <Button type="submit" disabled={!taskText.trim()}>
+                  <Plus className="size-4" />
+                  Aufgabe ergänzen
+                </Button>
+              </form>
             </div>
             <div className="card p-6">
               <h2 className="font-serif text-2xl font-bold">
@@ -410,7 +452,7 @@ export function GrowJournal() {
                     >
                       <span className="grid size-10 place-items-center rounded-full bg-sage/20">
                         {e.kind === "Gießen" ? (
-                        <Droplets className="size-5" />
+                          <Droplets className="size-5" />
                         ) : e.kind === "Düngung" ? (
                           <FlaskConical className="size-5" />
                         ) : (
