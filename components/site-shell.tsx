@@ -216,6 +216,7 @@ export function Footer() {
           <h2 className="font-bold">Verantwortung</h2>
           <div className="mt-4 grid gap-2 text-sm text-cream/70">
             <Link href="/rechtliches">Rechtliches & Verantwortung</Link>
+            <Link href="/impressum">Impressum</Link>
             <Link href="/datenschutz">Datenschutz</Link>
             <span>Keine Rechtsberatung</span>
             <span>Nur für Erwachsene</span>
@@ -292,6 +293,7 @@ export function PageIntro({
       "/mein-grow": "Mein Grow",
       "/faq": "FAQ",
       "/rechtliches": "Rechtliches & Verantwortung",
+      "/impressum": "Impressum",
       "/datenschutz": "Datenschutz",
     }[path] ?? title.replace(/\.$/, "");
   return (
