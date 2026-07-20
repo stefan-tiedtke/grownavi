@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>GROWNAVI.de</title>
+  <circle cx="32" cy="32" r="32" fill="#173f35"/>
+  <g
+    transform="translate(32 34.5) scale(.255)"
+    fill="none"
+    stroke="#fbf8ef"
+    stroke-width="9"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M0 62C-2 30-3-7 0-91C3-7 2 30 0 62"/>
+    <path d="M-3 35C-24 12-43-19-57-67C-25-40-9-9-3 35"/>
+    <path d="M3 35C24 12 43-19 57-67C25-40 9-9 3 35"/>
+    <path d="M-7 47C-34 36-60 17-84-18C-48-4-22 17-7 47"/>
+    <path d="M7 47C34 36 60 17 84-18C48-4 22 17 7 47"/>
+    <path d="M-8 55C-31 55-53 48-72 34C-44 35-22 42-8 55"/>
+    <path d="M8 55C31 55 53 48 72 34C44 35 22 42 8 55"/>
+    <path d="M0 58V91"/>
+  </g>
+</svg>
