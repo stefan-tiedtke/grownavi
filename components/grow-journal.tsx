@@ -12,15 +12,6 @@ import {
   Droplets,
 } from "lucide-react";
 import {
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-} from "recharts";
-import {
   exportProjects,
   GrowProject,
   importProjects,
@@ -89,18 +80,6 @@ export function GrowJournal() {
     setEntry("");
     setError("");
   };
-  const addClimate = () =>
-    active &&
-    update({
-      climate: [
-        ...active.climate,
-        {
-          date: new Date().toISOString().slice(0, 10),
-          temperature: 24,
-          humidity: 55,
-        },
-      ],
-    });
   const download = () => {
     const blob = new Blob([exportProjects(projects)], {
       type: "application/json",
@@ -332,48 +311,7 @@ export function GrowJournal() {
                 Lebenszyklus-Fortschritt: {(active.phase + 1) * 10} %
               </p>
             </div>
-            <div className="grid gap-6 xl:grid-cols-2">
-              <div className="card p-6">
-                <div className="flex justify-between">
-                  <h2 className="font-serif text-2xl font-bold">
-                    Klima-Verlauf
-                  </h2>
-                  <button onClick={addClimate} className="text-sm font-bold">
-                    + Messwert
-                  </button>
-                </div>
-                {active.climate.length ? (
-                  <div className="mt-5 h-64">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <LineChart data={active.climate}>
-                        <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
-                        <XAxis dataKey="date" hide />
-                        <YAxis />
-                        <Tooltip />
-                        <Line
-                          type="monotone"
-                          dataKey="temperature"
-                          name="Temperatur °C"
-                          stroke="#d69b32"
-                          strokeWidth={2}
-                        />
-                        <Line
-                          type="monotone"
-                          dataKey="humidity"
-                          name="Luftfeuchte %"
-                          stroke="#476b52"
-                          strokeWidth={2}
-                        />
-                      </LineChart>
-                    </ResponsiveContainer>
-                  </div>
-                ) : (
-                  <p className="mt-8 text-sm text-forest/55">
-                    Noch keine Klimaeinträge. Füge einen Messwert hinzu.
-                  </p>
-                )}
-              </div>
-              <div className="card p-6">
+            <div className="card p-6">
                 <h2 className="font-serif text-2xl font-bold">
                   Offene Aufgaben
                 </h2>
@@ -413,7 +351,6 @@ export function GrowJournal() {
                 >
                   + Aufgabe ergänzen
                 </button>
-              </div>
             </div>
             <div className="card p-6">
               <h2 className="font-serif text-2xl font-bold">
