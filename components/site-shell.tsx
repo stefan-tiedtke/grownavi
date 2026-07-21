@@ -16,6 +16,7 @@ import { cn } from "@/lib/utils";
 import { GROW_PROJECTS_CHANGED_EVENT, loadProjects } from "@/lib/storage";
 import { Breadcrumbs } from "./breadcrumbs";
 import { Button, Notice } from "./ui";
+import { ThemeToggle } from "./theme-toggle";
 
 const links = [
   [/^\/$/, "Start", "/"],
@@ -97,37 +98,40 @@ export function Header() {
             </span>
             GROWNAVI.de
           </Link>
-          <nav
-            aria-label="Hauptnavigation"
-            className="hidden items-center gap-1 lg:flex"
-          >
-            {links.map(([match, label, href]) => (
-              <Link
-                key={href}
-                className={cn(
-                  "inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold transition hover:bg-sage/15",
-                  match.test(path) ? "bg-forest text-cream" : "text-forest/75",
-                )}
-                href={href}
-              >
-                {label}
-                {href === "/mein-grow" && hasActiveGrow && (
-                  <>
-                    <ActiveGrowIndicator />
-                    <span className="sr-only">Aktives Grow-Projekt</span>
-                  </>
-                )}
-              </Link>
-            ))}
-          </nav>
-          <button
-            onClick={() => setOpen(!open)}
-            className="grid size-11 place-items-center rounded-full border border-forest/15 lg:hidden"
-            aria-label="Menü öffnen"
-            aria-expanded={open}
-          >
-            {open ? <X /> : <Menu />}
-          </button>
+          <div className="flex items-center gap-2">
+            <nav
+              aria-label="Hauptnavigation"
+              className="hidden items-center gap-1 lg:flex"
+            >
+              {links.map(([match, label, href]) => (
+                <Link
+                  key={href}
+                  className={cn(
+                    "inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold transition hover:bg-sage/15",
+                    match.test(path) ? "bg-forest text-cream" : "text-forest/75",
+                  )}
+                  href={href}
+                >
+                  {label}
+                  {href === "/mein-grow" && hasActiveGrow && (
+                    <>
+                      <ActiveGrowIndicator />
+                      <span className="sr-only">Aktives Grow-Projekt</span>
+                    </>
+                  )}
+                </Link>
+              ))}
+            </nav>
+            <ThemeToggle />
+            <button
+              onClick={() => setOpen(!open)}
+              className="grid size-11 place-items-center rounded-full border border-forest/15 lg:hidden"
+              aria-label="Menü öffnen"
+              aria-expanded={open}
+            >
+              {open ? <X /> : <Menu />}
+            </button>
+          </div>
         </div>
         {open && (
           <nav

@@ -15,4 +15,25 @@ a.card{transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease}
 a.card:hover{border-color:rgba(47,117,71,.35);box-shadow:0 24px 60px -28px rgba(16,63,50,.55)}
 .eyebrow{@apply text-xs font-extrabold uppercase tracking-[.18em] text-moss}
 .prose-grow h2{@apply mt-10 font-serif text-3xl font-semibold text-forest}.prose-grow h3{@apply mt-7 text-xl font-bold}.prose-grow p{@apply mt-3 leading-7 text-forest/75}.prose-grow ul{@apply mt-3 space-y-2 text-forest/75}
+
+/* Dark mode keeps the botanical palette while separating text, cards and controls. */
+html.dark{background:#071b16;color-scheme:dark}
+html.dark body{color:#e8f1e7;background:radial-gradient(circle at 88% 4%,rgba(76,145,87,.2),transparent 30%),radial-gradient(circle at 8% 28%,rgba(227,162,38,.06),transparent 24%),#071b16}
+body,.card,header,nav,input,select,textarea,button{transition:background-color .2s ease,border-color .2s ease,color .2s ease,box-shadow .2s ease}
+html.dark .card{border-color:rgba(166,205,169,.16);background:rgba(15,43,35,.94);box-shadow:0 20px 55px -28px rgba(0,0,0,.72)}
+html.dark a.card:hover{border-color:rgba(133,201,140,.42);box-shadow:0 24px 60px -28px rgba(0,0,0,.85)}
+html.dark [class*="text-forest"]{color:#e8f1e7}
+html.dark [class*="text-moss"]{color:#8fd097}
+html.dark [class*="border-forest"]{border-color:rgba(207,229,208,.18)}
+html.dark [class*="border-moss"]{border-color:rgba(143,208,151,.42)}
+html.dark [class*="bg-white"]{background-color:#102d25}
+html.dark [class*="bg-cream"]{background-color:rgba(7,27,22,.94)}
+html.dark [class*="bg-sage/"]{background-color:rgba(92,151,99,.18)}
+html.dark [class*="bg-sand/"]{background-color:rgba(154,112,61,.2)}
+html.dark [class*="bg-amber/"]{background-color:rgba(227,162,38,.16)}
+html.dark [class*="bg-red-50"]{background-color:rgba(127,29,29,.2)}
+html.dark input,html.dark select,html.dark textarea{color:#edf5ec;background-color:#102d25;border-color:rgba(207,229,208,.2)}
+html.dark input::placeholder,html.dark textarea::placeholder{color:rgba(232,241,231,.46)}
+html.dark .eyebrow{color:#8fd097}
+html.dark ::selection{background:#e3a226;color:#071b16}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
