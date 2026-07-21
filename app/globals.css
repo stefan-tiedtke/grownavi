@@ -35,5 +35,11 @@ html.dark [class*="bg-red-50"]{background-color:rgba(127,29,29,.2)}
 html.dark input,html.dark select,html.dark textarea{color:#edf5ec;background-color:#102d25;border-color:rgba(207,229,208,.2)}
 html.dark input::placeholder,html.dark textarea::placeholder{color:rgba(232,241,231,.46)}
 html.dark .eyebrow{color:#8fd097}
+html.dark .reading-page{color:#f7f3ea}
+html.dark .reading-page h1,html.dark .reading-page h2,html.dark .reading-page h3,html.dark .reading-page strong,html.dark .reading-page b{color:#fffaf0}
+html.dark .reading-page p,html.dark .reading-page li,html.dark .reading-page td,html.dark .reading-page th{color:#e7ebe5}
+html.dark .reading-page .prose-grow p,html.dark .reading-page .prose-grow ul{color:#e7ebe5}
+html.dark .reading-page .eyebrow,html.dark .reading-page a{color:#9cdda3}
+html.dark .reading-page .card{background:rgba(18,48,39,.98);border-color:rgba(231,235,229,.2)}
 html.dark ::selection{background:#e3a226;color:#071b16}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

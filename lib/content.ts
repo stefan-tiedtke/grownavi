@@ -294,6 +294,14 @@ export const knowledge = [
       "Zwei Lebenszyklen, unterschiedliche Stärken: So findest du die Genetik, die zu deinem Alltag und deinem Platz passt.",
   },
   {
+    slug: "cannabis-training-lst-hst",
+    title: "Cannabis trainieren: LST und HST",
+    topic: "Training",
+    phase: "Wachstum",
+    excerpt:
+      "Sanft formen oder gezielt beschneiden? Lerne die wichtigsten Trainingsmethoden kennen und erfahre, was zu Autoflower- und photoperiodischen Pflanzen passt.",
+  },
+  {
     slug: "licht-verstehen",
     title: "Licht, PPFD und DLI",
     topic: "Licht",

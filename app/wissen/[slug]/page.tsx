@@ -96,6 +96,32 @@ const sections: Record<string, [string, string][]> = {
       "Wenn du zeitlich flexibel bleiben und auf Entwicklungen reagieren möchtest, kann eine photoperiodische Pflanze angenehm sein. Wenn ein klar begrenzter Zeitraum und kompakter Wuchs wichtiger sind, kann eine Autoflower passen. Entscheide nach Standort und Alltag – nicht nach dem Versprechen, eine Variante sei grundsätzlich einfacher.",
     ],
   ],
+  "cannabis-training-lst-hst": [
+    [
+      "Training verändert die Form – nicht die Grundbedürfnisse",
+      "Beim Pflanzentraining werden Triebe gelenkt oder gezielt zurückgeschnitten, damit eine flachere, gleichmäßigere Krone entsteht. Dadurch können mehrere Triebspitzen ähnlich viel Licht erhalten und der vorhandene Platz lässt sich besser nutzen. Training ersetzt jedoch weder gesunde Wurzeln noch passendes Licht, Klima und einen ruhigen Gießrhythmus. Eine untrainierte, gesunde Pflanze kann erfolgreicher sein als eine überforderte Pflanze mit vielen Eingriffen.",
+    ],
+    [
+      "Low Stress Training: sanft in die Breite führen",
+      "Low Stress Training, kurz LST, formt die Pflanze ohne größere Schnittwunden. Beim Herunterbinden werden Haupt- und Seitentriebe vorsichtig gebogen und locker fixiert. Leaf Tucking legt große Blätter behutsam hinter junge Triebe, statt sie zu entfernen. Bei einem SCROG werden wachsende Triebe unter oder durch ein Netz verteilt. Gemeinsam ist diesen Methoden, dass sie regelmäßig in kleinen Schritten erfolgen und kein starkes Knicken oder Quetschen benötigen.",
+    ],
+    [
+      "High Stress Training: bewusst eingreifen",
+      "High Stress Training, kurz HST, entfernt oder verletzt Pflanzengewebe. Beim Topping wird die dominante Triebspitze entfernt, beim FIM nur ein Teil davon. Supercropping formt einen Trieb durch kontrolliertes Weichdrücken und Umlegen. Lollipopping entfernt schwache untere Triebe; Defoliation ausgewählte Blätter. Mainlining oder Manifolding verbindet wiederholtes Topping mit anschließendem Formen. Solche Eingriffe brauchen eine vitale Pflanze, sauberes Werkzeug und genügend Zeit zur Erholung.",
+    ],
+    [
+      "Autoflower: Die innere Uhr läuft weiter",
+      "Autoflowering Pflanzen beginnen genetisch gesteuert und weitgehend unabhängig von der Tageslänge mit der Blüte. Ihre Wachstumsphase lässt sich nach einem stärkeren Eingriff nicht einfach verlängern. Deshalb sind sanftes Herunterbinden, behutsames Spreizen und Leaf Tucking meist die risikoärmere Wahl. Topping, starke Entlaubung, Supercropping und Mainlining können funktionieren, lassen aber deutlich weniger Spielraum für Fehler und sind für Einsteiger nicht zu empfehlen.",
+    ],
+    [
+      "Photoperiodisch: mehr Zeit für Erholung und Formgebung",
+      "Photoperiodische Pflanzen lassen sich unter langen Tagen länger im vegetativen Wachstum halten. Das eröffnet mehr Zeit für Topping, SCROG, Lollipopping oder kombinierte Methoden und erlaubt, die Blüte erst nach sichtbarer Erholung einzuleiten. Auch hier gilt: nicht mehrere starke Eingriffe gleichzeitig vornehmen, nicht an geschwächten Pflanzen arbeiten und größere Schnittmaßnahmen möglichst nicht bis tief in die Blüte fortsetzen.",
+    ],
+    [
+      "Mehr Training bedeutet nicht automatisch mehr Ertrag",
+      "Die wissenschaftliche Datenlage ist noch begrenzt und Ergebnisse hängen stark von Genetik, Pflanzengröße, Dichte und Kulturbedingungen ab. In einer Untersuchung großer photoperiodischer medizinischer Cannabispflanzen erhöhte zweimaliges Beschneiden den Blütenertrag, während einfaches Beschneiden, Entlaubung und das Entfernen unterer Bereiche keinen sicheren Mehrertrag brachten. Extrem starkes Entfernen von Zweigen senkte den Ertrag drastisch. Die passende Intensität ist deshalb wichtiger als die Anzahl der Methoden.",
+    ],
+  ],
   "licht-verstehen": [
     [
       "Licht ist Nahrung – aber kein Wettbewerb",
@@ -242,6 +268,44 @@ const checklist = [
   "Neues Wachstum stärker gewichten als alte Schäden",
 ];
 
+const trainingMethods = {
+  lst: [
+    ["Herunterbinden", "Triebe vorsichtig biegen und locker fixieren"],
+    ["Leaf Tucking", "Große Blätter hinter junge Triebe legen"],
+    ["Sanftes Spreizen", "Seitentriebe schrittweise auseinanderführen"],
+    ["SCROG", "Triebe zu einer gleichmäßigen Fläche verteilen"],
+  ],
+  hst: [
+    ["Topping", "Die dominante Triebspitze gezielt entfernen"],
+    ["FIM", "Nur einen Teil der jungen Triebspitze entfernen"],
+    ["Supercropping", "Einen Trieb kontrolliert weichdrücken und umlegen"],
+    ["Lollipopping", "Schwache untere Triebe und Blätter entfernen"],
+    ["Defoliation", "Ausgewählte große Blätter entfernen"],
+    ["Mainlining", "Topping und symmetrische Formgebung kombinieren"],
+  ],
+};
+
+const trainingSuitability = [
+  ["Sanftes Herunterbinden", "Gut geeignet", "Gut geeignet"],
+  ["Leaf Tucking", "Gut geeignet", "Gut geeignet"],
+  ["Vorsichtiges SCROG", "Bedingt geeignet", "Sehr gut geeignet"],
+  ["Topping", "Eher riskant", "Gut geeignet"],
+  ["FIM", "Eher riskant", "Gut geeignet"],
+  ["Supercropping", "Eher vermeiden", "Nur mit Erfahrung"],
+  ["Starke Defoliation", "Eher vermeiden", "Vorsichtig möglich"],
+  ["Lollipopping", "Nur sehr zurückhaltend", "Gut planbar"],
+  ["Mainlining", "Nicht empfohlen", "Anspruchsvoll, aber planbar"],
+];
+
+const trainingChecklist = [
+  "Nur eine vitale, sichtbar wachsende Pflanze trainieren",
+  "Vorher prüfen, wie viel Erholungszeit bis zur Blüte bleibt",
+  "Mit der sanftesten geeigneten Methode beginnen",
+  "Fixierungen locker halten und regelmäßig kontrollieren",
+  "Starke Eingriffe nicht miteinander oder mit Umtopfen kombinieren",
+  "Nach dem Eingriff mehrere Tage beobachten, bevor du weiterarbeitest",
+];
+
 export default async function Page({
   params,
 }: {
@@ -254,7 +318,7 @@ export default async function Page({
   if (!content) notFound();
 
   return (
-    <article>
+    <article className="reading-page">
       <header className="container-page py-16">
         <Breadcrumbs
           items={[
@@ -281,9 +345,126 @@ export default async function Page({
               <p>{paragraph}</p>
             </section>
           ))}
+          {slug === "cannabis-training-lst-hst" && (
+            <>
+              <h2>Die Methoden auf einen Blick</h2>
+              <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                <section className="card p-5">
+                  <p className="eyebrow !mt-0">Low Stress Training</p>
+                  <ul className="mt-4 space-y-3">
+                    {trainingMethods.lst.map(([name, description]) => (
+                      <li key={name} className="rounded-xl bg-sage/10 p-3">
+                        <strong className="block">{name}</strong>
+                        <span className="mt-1 block text-sm text-forest/65">
+                          {description}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+                <section className="card p-5">
+                  <p className="eyebrow !mt-0">High Stress Training</p>
+                  <ul className="mt-4 space-y-3">
+                    {trainingMethods.hst.map(([name, description]) => (
+                      <li key={name} className="rounded-xl bg-amber/10 p-3">
+                        <strong className="block">{name}</strong>
+                        <span className="mt-1 block text-sm text-forest/65">
+                          {description}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              </div>
+
+              <h2>Welche Methode passt zu welchem Pflanzentyp?</h2>
+              <div className="mt-5 overflow-x-auto rounded-[1.75rem] border border-forest/15 bg-white/90 shadow-soft">
+                <table className="w-full min-w-[620px] border-collapse text-left text-sm">
+                  <thead className="bg-sage/15">
+                    <tr>
+                      <th className="p-4 font-bold">Methode</th>
+                      <th className="p-4 font-bold">Autoflower</th>
+                      <th className="p-4 font-bold">Photoperiodisch</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {trainingSuitability.map(([method, auto, photo]) => (
+                      <tr className="border-t border-forest/10" key={method}>
+                        <th scope="row" className="p-4 font-semibold">
+                          {method}
+                        </th>
+                        <td className="p-4">{auto}</td>
+                        <td className="p-4">{photo}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="mt-3 text-sm text-forest/60">
+                Die Einordnung ist eine vorsichtige Praxisempfehlung, keine
+                Ertragsgarantie. Für moderne Autoflower-Sorten fehlen bislang
+                direkte wissenschaftliche Vergleichsstudien zwischen LST, HST
+                und untrainierten Kontrollpflanzen.
+              </p>
+
+              <h2>Forschungsstand und Quellen</h2>
+              <p>
+                Die folgenden Arbeiten stützen die Einordnung zu
+                Pflanzenarchitektur, Beschneiden und dem genetisch gesteuerten
+                Autoflower-Merkmal:
+              </p>
+              <ul>
+                <li>
+                  <a
+                    className="font-semibold text-moss underline underline-offset-4"
+                    href="https://www.mdpi.com/2223-7747/10/9/1834"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Shape Matters: Plant Architecture Affects Chemical
+                    Uniformity in Large-Size Medical Cannabis Plants
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="font-semibold text-moss underline underline-offset-4"
+                    href="https://pubmed.ncbi.nlm.nih.gov/41787587/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Morphologische und physiologische Reaktionen auf Topping
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="font-semibold text-moss underline underline-offset-4"
+                    href="https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2022.713481/full"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Einfluss von Pflanzendichte und Architektur auf Ertrag und
+                    Gleichmäßigkeit
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="font-semibold text-moss underline underline-offset-4"
+                    href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9533707/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Genetische Grundlagen des Autoflower-Merkmals
+                  </a>
+                </li>
+              </ul>
+            </>
+          )}
           <h2>Eine ruhige Checkliste für die Praxis</h2>
           <ul>
-            {checklist.map((item) => (
+            {(slug === "cannabis-training-lst-hst"
+              ? trainingChecklist
+              : checklist
+            ).map((item) => (
               <li className="flex gap-2" key={item}>
                 <CheckCircle2 className="mt-1 size-5 shrink-0 text-moss" />
                 {item}

@@ -70,7 +70,7 @@ const topics = [
 ];
 export default function Page() {
   return (
-    <>
+    <div className="reading-page">
       <PageIntro
         eyebrow="Solides Fundament"
         title="Grundlagen, die Zusammenhänge sichtbar machen."
@@ -90,6 +90,6 @@ export default function Page() {
           </Link>
         ))}
       </section>
-    </>
+    </div>
   );
 }

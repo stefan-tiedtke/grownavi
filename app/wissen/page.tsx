@@ -4,7 +4,7 @@ import { KnowledgeGrid } from "@/components/content-cards";
 export const metadata: Metadata = {
   title: "Cannabis-Anbauwissen",
   description:
-    "Ausführliche Leitfäden und verständliche Vergleiche zu Licht, Klima, Gießen, Nährstoffen und verantwortungsvollem Cannabis-Eigenanbau.",
+    "Ausführliche Leitfäden und verständliche Vergleiche zu Licht, Klima, Gießen, Nährstoffen, Pflanzentraining und verantwortungsvollem Cannabis-Eigenanbau.",
   alternates: { canonical: "/wissen" },
 };
 export default function Page() {
