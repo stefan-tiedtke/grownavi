@@ -4,7 +4,6 @@ import Link from "next/link";
 import {
   ArrowRight,
   CalendarDays,
-  CloudSun,
   Droplets,
   SearchCheck,
 } from "lucide-react";
@@ -75,12 +74,6 @@ export const toolTeasers = [
     href: "/werkzeuge/grow-planer",
   },
   {
-    title: "Klima & VPD",
-    text: "Temperatur und Feuchte verständlich zusammendenken.",
-    icon: CloudSun,
-    href: "/werkzeuge/vpd-rechner",
-  },
-  {
     title: "Gießhilfe",
     text: "Beobachten statt nach starrem Kalender gießen.",
     icon: Droplets,
@@ -95,7 +88,7 @@ export const toolTeasers = [
 ];
 export function HomeTools() {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {toolTeasers.map((x) => (
         <Link
           key={x.title}

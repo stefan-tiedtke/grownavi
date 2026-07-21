@@ -3,16 +3,8 @@ import {
   addDays,
   buildGrowPlan,
   calculateDLI,
-  calculateVPD,
   isValidDateInput,
 } from "@/lib/utils";
-describe("VPD-Berechnung", () => {
-  it("berechnet Luft- und Blatt-VPD nachvollziehbar", () => {
-      expect(calculateVPD(25, 60, 23)).toBeCloseTo(0.91, 2);
-  });
-  it("liefert nie negative Werte", () =>
-    expect(calculateVPD(30, 100, 15)).toBe(0));
-});
 describe("DLI-Berechnung", () => {
   it("verknüpft PPFD und Stunden", () =>
     expect(calculateDLI(500, 18)).toBeCloseTo(32.4, 3));

@@ -3,11 +3,6 @@ import { twMerge } from "tailwind-merge";
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 export const formatDate = (date: Date | string) => new Intl.DateTimeFormat("de-DE",{day:"2-digit",month:"short",year:"numeric"}).format(new Date(date));
 
-/** VPD in kPa. Tetens saturation-vapour-pressure approximation. */
-export function calculateVPD(airTemperature:number, humidity:number, leafTemperature=airTemperature){
-  const saturation=(t:number)=>0.6108*Math.exp((17.27*t)/(t+237.3));
-  return Math.max(0,saturation(leafTemperature)-saturation(airTemperature)*(humidity/100));
-}
 /** DLI in mol/m²/day from PPFD in µmol/m²/s and photoperiod in hours. */
 export const calculateDLI=(ppfd:number,hours:number)=>(ppfd*hours*3600)/1_000_000;
 export function isValidDateInput(value:string){

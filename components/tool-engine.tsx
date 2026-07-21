@@ -7,20 +7,10 @@ import {
   Save,
   Trash2,
 } from "lucide-react";
-import {
-  Area,
-  AreaChart,
-  CartesianGrid,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
 import { phases } from "@/lib/content";
 import {
   buildGrowPlan,
   calculateDLI,
-  calculateVPD,
   formatDate,
   isValidDateInput,
 } from "@/lib/utils";
@@ -291,122 +281,6 @@ function Planner() {
             </p>
           </Result>
         )}
-      </div>
-    </div>
-  );
-}
-
-function VPD() {
-  const [t, setT] = useState(25),
-    [rh, setRh] = useState(60),
-    [leaf, setLeaf] = useState(24),
-    [phase, setPhase] = useState(3);
-  const value = calculateVPD(t, rh, leaf);
-  const ranges = [
-    [0.4, 0.8],
-    [0.4, 0.8],
-    [0.5, 1],
-    [0.8, 1.2],
-    [0.8, 1.2],
-    [1, 1.4],
-    [1, 1.4],
-    [0.8, 1.2],
-    [0.6, 1],
-    [0.6, 1],
-  ];
-  const [lo, hi] = ranges[phase];
-  const status =
-    value < lo
-      ? "eher niedrig"
-      : value > hi
-        ? "eher hoch"
-        : "im allgemeinen Orientierungsbereich";
-  const data = Array.from({ length: 9 }, (_, i) => {
-    const humidity = 40 + i * 5;
-    return {
-      humidity,
-      vpd: Number(calculateVPD(t, humidity, leaf).toFixed(2)),
-    };
-  });
-  return (
-    <div className="grid gap-6 lg:grid-cols-2">
-      <div className="card grid content-start gap-5 p-6">
-        <Field label="Lufttemperatur (°C)">
-          <Input
-            type="number"
-            min={5}
-            max={45}
-            step="0.1"
-            value={t}
-            onChange={(e) => setT(Number(e.target.value))}
-          />
-        </Field>
-        <Field label="Relative Luftfeuchtigkeit (%)">
-          <Input
-            type="number"
-            min={10}
-            max={100}
-            value={rh}
-            onChange={(e) => setRh(Number(e.target.value))}
-          />
-        </Field>
-        <Field
-          label="Blatttemperatur (°C)"
-          hint="Optional gemessen; ohne Messung ungefähr Lufttemperatur verwenden."
-        >
-          <Input
-            type="number"
-            min={5}
-            max={45}
-            step="0.1"
-            value={leaf}
-            onChange={(e) => setLeaf(Number(e.target.value))}
-          />
-        </Field>
-        <Field label="Wachstumsphase">
-          <Select
-            value={phase}
-            onChange={(e) => setPhase(Number(e.target.value))}
-          >
-            {phaseOptions}
-          </Select>
-        </Field>
-        <Notice>
-          Formel: Sättigungsdampfdruck am Blatt minus tatsächlicher Dampfdruck
-          der Luft (Tetens-Näherung).
-        </Notice>
-      </div>
-      <div className="space-y-5">
-        <Result
-          title={`${value.toFixed(2)} kPa · ${status}`}
-          tone={value < lo || value > hi ? "amber" : "sage"}
-        >
-          <p>
-            {value < lo
-              ? "Die Luft ist im Verhältnis eher feucht. Prüfe zuerst Messposition, Luftbewegung und Kondensation."
-              : value > hi
-                ? "Die Verdunstungsnachfrage ist eher hoch. Prüfe Blattreaktion, Temperatur und Feuchte, bevor du etwas änderst."
-                : "Für diese Phase liegt der Wert in einem häufig genutzten Richtbereich. Das ist keine Garantie für optimale Bedingungen."}
-          </p>
-        </Result>
-        <div className="card h-72 p-5">
-          <h2 className="font-bold">VPD bei veränderter Luftfeuchte</h2>
-          <ResponsiveContainer width="100%" height="85%">
-            <AreaChart data={data}>
-              <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
-              <XAxis dataKey="humidity" unit=" %" />
-              <YAxis unit=" kPa" width={65} />
-              <Tooltip />
-              <Area
-                dataKey="vpd"
-                type="monotone"
-                stroke="#476b52"
-                fill="#8fae91"
-                fillOpacity={0.35}
-              />
-            </AreaChart>
-          </ResponsiveContainer>
-        </div>
       </div>
     </div>
   );
@@ -1031,7 +905,6 @@ export function ToolEngine({
 }) {
   const tools: Record<string, React.ReactNode> = {
     "grow-planer": <Planner />,
-    "vpd-rechner": <VPD />,
     lichtplaner: <LightPlanner />,
     giesshilfe: <WaterHelp />,
     "mangel-finder": <Deficiency />,
