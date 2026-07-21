@@ -10,6 +10,7 @@ import {
   Lightbulb,
   TestTube2,
   Warehouse,
+  Wrench,
 } from "lucide-react";
 import { PageIntro } from "@/components/site-shell";
 export const metadata: Metadata = {
@@ -19,6 +20,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "/grundlagen" },
 };
 const topics = [
+  {
+    title: "Ausrüstung für Indoor & Outdoor",
+    icon: Wrench,
+    text: "Growzelt, Messgeräte, Scheren, Lüftung, Sicherheit und Erntezubehör unabhängig erklärt.",
+    href: "/ausruestung",
+  },
   {
     title: "Anbauarten & Substrate",
     icon: Warehouse,

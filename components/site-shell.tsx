@@ -213,6 +213,7 @@ export function Footer() {
             <Link href="/werkzeuge">Werkzeuge</Link>
             <Link href="/wissen">Wissensbereich</Link>
             <Link href="/glossar">Glossar</Link>
+            <Link href="/ausruestung">Ausrüstung</Link>
             <Link href="/mein-grow">Mein Grow</Link>
           </div>
         </div>
@@ -294,6 +295,7 @@ export function PageIntro({
       "/werkzeuge": "Werkzeuge",
       "/wissen": "Wissen",
       "/glossar": "Glossar",
+      "/ausruestung": "Ausrüstung",
       "/mein-grow": "Mein Grow",
       "/faq": "FAQ",
       "/rechtliches": "Rechtliches & Verantwortung",
