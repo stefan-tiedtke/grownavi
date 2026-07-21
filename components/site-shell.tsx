@@ -86,13 +86,13 @@ export function Header() {
       >
         Zum Inhalt
       </a>
-      <header className="sticky top-0 z-50 border-b border-forest/10 bg-cream/90 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-forest/15 bg-cream/90 shadow-[0_8px_30px_-24px_rgba(16,63,50,.7)] backdrop-blur-xl">
         <div className="container-page flex h-16 items-center justify-between">
           <Link
             href="/"
             className="flex items-center gap-2 font-serif text-xl font-bold"
           >
-            <span className="grid size-9 place-items-center rounded-full bg-forest text-cream">
+            <span className="grid size-9 place-items-center rounded-full bg-gradient-to-br from-moss to-forest text-cream shadow-md ring-2 ring-moss/15">
               <CannabisLeafLogo className="size-6" />
             </span>
             GROWNAVI.de
