@@ -338,7 +338,7 @@ export default async function Page({
         </p>
       </header>
       <div className="container-page grid gap-10 lg:grid-cols-[1fr_.35fr]">
-        <div className="prose-grow">
+        <div className="prose-grow min-w-0">
           {content.map(([heading, paragraph]) => (
             <section key={heading}>
               <h2>{heading}</h2>
@@ -378,7 +378,24 @@ export default async function Page({
               </div>
 
               <h2>Welche Methode passt zu welchem Pflanzentyp?</h2>
-              <div className="mt-5 overflow-x-auto rounded-[1.75rem] border border-forest/15 bg-white/90 shadow-soft">
+              <div className="mt-5 grid gap-3 sm:hidden">
+                {trainingSuitability.map(([method, auto, photo]) => (
+                  <section className="card p-4" key={method}>
+                    <h3 className="!mt-0 text-lg font-bold">{method}</h3>
+                    <dl className="mt-3 grid gap-3 text-sm">
+                      <div className="rounded-xl bg-sage/10 p-3">
+                        <dt className="font-bold">Autoflower</dt>
+                        <dd className="mt-1">{auto}</dd>
+                      </div>
+                      <div className="rounded-xl bg-sage/10 p-3">
+                        <dt className="font-bold">Photoperiodisch</dt>
+                        <dd className="mt-1">{photo}</dd>
+                      </div>
+                    </dl>
+                  </section>
+                ))}
+              </div>
+              <div className="mt-5 hidden max-w-full overflow-x-auto rounded-[1.75rem] border border-forest/15 bg-white/90 shadow-soft sm:block">
                 <table className="w-full min-w-[620px] border-collapse text-left text-sm">
                   <thead className="bg-sage/15">
                     <tr>
@@ -416,7 +433,7 @@ export default async function Page({
               <ul>
                 <li>
                   <a
-                    className="font-semibold text-moss underline underline-offset-4"
+                    className="break-words font-semibold text-moss underline underline-offset-4"
                     href="https://www.mdpi.com/2223-7747/10/9/1834"
                     target="_blank"
                     rel="noreferrer"
@@ -427,7 +444,7 @@ export default async function Page({
                 </li>
                 <li>
                   <a
-                    className="font-semibold text-moss underline underline-offset-4"
+                    className="break-words font-semibold text-moss underline underline-offset-4"
                     href="https://pubmed.ncbi.nlm.nih.gov/41787587/"
                     target="_blank"
                     rel="noreferrer"
@@ -437,7 +454,7 @@ export default async function Page({
                 </li>
                 <li>
                   <a
-                    className="font-semibold text-moss underline underline-offset-4"
+                    className="break-words font-semibold text-moss underline underline-offset-4"
                     href="https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2022.713481/full"
                     target="_blank"
                     rel="noreferrer"
@@ -448,7 +465,7 @@ export default async function Page({
                 </li>
                 <li>
                   <a
-                    className="font-semibold text-moss underline underline-offset-4"
+                    className="break-words font-semibold text-moss underline underline-offset-4"
                     href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9533707/"
                     target="_blank"
                     rel="noreferrer"
