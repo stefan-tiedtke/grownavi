@@ -6,7 +6,7 @@ import { toolDefinitions } from "@/lib/tools";
 export const metadata: Metadata = {
   title: "Cannabis Grow-Werkzeuge",
   description:
-    "Grow-Planer, Lichtplaner, Gießhilfe, Symptom-Finder und Ernte- sowie Trocknungsassistent.",
+    "Grow-Planer, Gießhilfe, Symptom-Finder und Ernte- sowie Trocknungsassistent.",
   alternates: { canonical: "/werkzeuge" },
 };
 export default function Page() {

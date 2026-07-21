@@ -2,13 +2,8 @@ import { describe, expect, it } from "vitest";
 import {
   addDays,
   buildGrowPlan,
-  calculateDLI,
   isValidDateInput,
 } from "@/lib/utils";
-describe("DLI-Berechnung", () => {
-  it("verknüpft PPFD und Stunden", () =>
-    expect(calculateDLI(500, 18)).toBeCloseTo(32.4, 3));
-});
 describe("Grow-Plan", () => {
   it("berechnet fortlaufende Phasentermine", () => {
     const p = buildGrowPlan("2026-01-01", 4, 8, false);

@@ -3,8 +3,6 @@ import { twMerge } from "tailwind-merge";
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 export const formatDate = (date: Date | string) => new Intl.DateTimeFormat("de-DE",{day:"2-digit",month:"short",year:"numeric"}).format(new Date(date));
 
-/** DLI in mol/m²/day from PPFD in µmol/m²/s and photoperiod in hours. */
-export const calculateDLI=(ppfd:number,hours:number)=>(ppfd*hours*3600)/1_000_000;
 export function isValidDateInput(value:string){
   const match=/^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
   if(!match)return false;

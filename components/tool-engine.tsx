@@ -10,7 +10,6 @@ import {
 import { phases } from "@/lib/content";
 import {
   buildGrowPlan,
-  calculateDLI,
   formatDate,
   isValidDateInput,
 } from "@/lib/utils";
@@ -281,139 +280,6 @@ function Planner() {
             </p>
           </Result>
         )}
-      </div>
-    </div>
-  );
-}
-
-function LightPlanner() {
-  const [type, setType] = useState("photo"),
-    [phase, setPhase] = useState(3),
-    [hours, setHours] = useState(18),
-    [power, setPower] = useState(200),
-    [distance, setDistance] = useState(40),
-    [ppfd, setPpfd] = useState(400);
-  const dli = calculateDLI(ppfd, hours);
-  const warnings = [
-    hours > 20
-      ? "Sehr lange Beleuchtungsdauer – Erholungs- und Dunkelphase prüfen."
-      : "",
-    distance < 15
-      ? "Sehr geringer Abstand – Herstellerangaben, Wärme und Blattreaktion prüfen."
-      : "",
-    power > 800 && distance < 30
-      ? "Hohe Leistung bei geringem Abstand – Lichtstress möglich."
-      : "",
-    type === "photo" && phase >= 5 && hours > 14
-      ? "Photoperiodische Blüte bei langer Lichtphase ist ungewöhnlich; Lichtplan prüfen."
-      : "",
-  ].filter(Boolean);
-  return (
-    <div className="grid gap-6 lg:grid-cols-2">
-      <div className="card grid gap-5 p-6">
-        <Field label="Pflanzentyp">
-          <Select value={type} onChange={(e) => setType(e.target.value)}>
-            <option value="photo">Photoperiodisch</option>
-            <option value="auto">Autoflower</option>
-          </Select>
-        </Field>
-        <Field label="Wachstumsphase">
-          <Select
-            value={phase}
-            onChange={(e) => setPhase(Number(e.target.value))}
-          >
-            {phaseOptions}
-          </Select>
-        </Field>
-        <Field label="Beleuchtungsdauer (Stunden)">
-          <Input
-            type="number"
-            min={1}
-            max={24}
-            value={hours}
-            onChange={(e) => setHours(Number(e.target.value))}
-          />
-        </Field>
-        <Field label="Lampenleistung (W)">
-          <Input
-            type="number"
-            min={1}
-            max={2000}
-            value={power}
-            onChange={(e) => setPower(Number(e.target.value))}
-          />
-        </Field>
-        <Field label="Abstand zur Pflanze (cm)">
-          <Input
-            type="number"
-            min={5}
-            max={300}
-            value={distance}
-            onChange={(e) => setDistance(Number(e.target.value))}
-          />
-        </Field>
-        <Field
-          label="Gemessener PPFD (µmol/m²/s)"
-          hint="Optional; eine Wattzahl allein erlaubt keine verlässliche PPFD-Berechnung."
-        >
-          <Input
-            type="number"
-            min={0}
-            max={3000}
-            value={ppfd}
-            onChange={(e) => setPpfd(Number(e.target.value))}
-          />
-        </Field>
-      </div>
-      <div className="space-y-5">
-        <Result
-          title={`DLI ca. ${dli.toFixed(1)} mol/m²/Tag`}
-          tone={warnings.length ? "amber" : "sage"}
-        >
-          <p>
-            Berechnet aus gemessenem PPFD × {hours} Stunden × 3.600 Sekunden.
-            Beurteile zusätzlich Blattwinkel, Farbe, Temperatur und die
-            gleichmäßige Ausleuchtung.
-          </p>
-        </Result>
-        {warnings.length ? (
-          <Notice warning>
-            <ul className="list-disc pl-4">
-              {warnings.map((x) => (
-                <li key={x}>{x}</li>
-              ))}
-            </ul>
-          </Notice>
-        ) : (
-          <Notice>
-            Die Kombination wirkt nicht offensichtlich ungewöhnlich. Vergleiche
-            sie trotzdem mit Herstellerangaben und Pflanzenreaktion; Werte sind
-            allgemeine Richtwerte.
-          </Notice>
-        )}
-        <div className="card p-6">
-          <h2 className="font-serif text-2xl font-bold">Lichtplan</h2>
-          <dl className="mt-5 grid grid-cols-2 gap-4 text-sm">
-            <div>
-              <dt className="text-forest/55">An / Aus</dt>
-              <dd className="mt-1 font-bold">
-                {hours} h / {24 - hours} h
-              </dd>
-            </div>
-            <div>
-              <dt className="text-forest/55">Abstand</dt>
-              <dd className="mt-1 font-bold">{distance} cm prüfen</dd>
-            </div>
-            <div>
-              <dt className="text-forest/55">Leistung</dt>
-              <dd className="mt-1 font-bold">{power} W</dd>
-            </div>
-            <div>
-              <dt className="text-forest/55">Phase</dt>
-              <dd className="mt-1 font-bold">{phases[phase].title}</dd>
-            </div>
-          </dl>
-        </div>
       </div>
     </div>
   );
@@ -905,7 +771,6 @@ export function ToolEngine({
 }) {
   const tools: Record<string, React.ReactNode> = {
     "grow-planer": <Planner />,
-    lichtplaner: <LightPlanner />,
     giesshilfe: <WaterHelp />,
     "mangel-finder": <Deficiency />,
     "ernte-check": <Harvest />,
