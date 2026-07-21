@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import {
   Download,
   FlaskConical,
@@ -33,8 +32,7 @@ export function GrowJournal() {
     ),
     [taskText, setTaskText] = useState(""),
     [showProjectIndicatorHint, setShowProjectIndicatorHint] = useState(false),
-    [error, setError] = useState(""),
-    [photoUrl, setPhotoUrl] = useState("");
+    [error, setError] = useState("");
   const fileRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
     const p = loadProjects();
@@ -274,37 +272,6 @@ export function GrowJournal() {
                   <Trash2 className="size-4" />
                   {active.demo ? "Demo entfernen" : "Projekt löschen"}
                 </Button>
-              </div>
-              <div className="mt-6 rounded-2xl bg-sage/10 p-4">
-                <label className="text-sm font-bold" htmlFor="grow-photo">
-                  Lokale Bildvorschau
-                </label>
-                <p className="mt-1 text-xs text-forest/55">
-                  Das Bild wird nicht hochgeladen und nur bis zum Neuladen
-                  angezeigt.
-                </p>
-                <input
-                  id="grow-photo"
-                  className="mt-3 block w-full text-sm"
-                  type="file"
-                  accept="image/*"
-                  onChange={(event) => {
-                    if (photoUrl) URL.revokeObjectURL(photoUrl);
-                    const file = event.target.files?.[0];
-                    setPhotoUrl(file ? URL.createObjectURL(file) : "");
-                  }}
-                />
-                {photoUrl && (
-                  <div className="relative mt-4 aspect-video overflow-hidden rounded-xl">
-                    <Image
-                      src={photoUrl}
-                      alt="Lokal ausgewählte Vorschau der Pflanze"
-                      fill
-                      unoptimized
-                      className="object-cover"
-                    />
-                  </div>
-                )}
               </div>
               <div className="mt-6 grid gap-4 sm:grid-cols-3">
                 <Field label="Startdatum">
