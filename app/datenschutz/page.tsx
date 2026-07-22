@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 export default function Page() {
   return (
-    <>
+    <div className="reading-page">
       <PageIntro
         eyebrow="Keine Tracker, kein Konto"
         title="Deine Daten bleiben bei dir."
@@ -36,11 +36,10 @@ export default function Page() {
         </p>
         <h2>Bilder</h2>
         <p>
-          In dieser Version werden keine Bilder hochgeladen. Wenn eine lokale
-          Vorschau später ergänzt wird, bleibt sie ebenfalls im Browser und wird
-          nicht an einen Server gesendet.
+          GROWNAVI bietet derzeit keine Funktion zum Hochladen persönlicher
+          Bilder an. Es werden daher keine Bilddateien an einen Server gesendet.
         </p>
       </section>
-    </>
+    </div>
   );
 }
