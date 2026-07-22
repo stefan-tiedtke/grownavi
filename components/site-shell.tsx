@@ -207,14 +207,17 @@ export function Footer() {
         </div>
         <div>
           <h2 className="font-bold">Entdecken</h2>
-          <div className="mt-4 grid gap-2 text-sm text-cream/70">
+          <div className="mt-4 grid grid-cols-2 gap-x-5 gap-y-2 text-sm text-cream/70 md:grid-cols-1">
+            <Link href="/">Start</Link>
             <Link href="/anbauphasen">Anbauphasen</Link>
+            <Link href="/grundlagen">Grundlagen</Link>
             <Link href="/sortenkunde">Sortenkunde</Link>
+            <Link href="/probleme">Probleme erkennen</Link>
             <Link href="/werkzeuge">Werkzeuge</Link>
-            <Link href="/wissen">Wissensbereich</Link>
+            <Link href="/wissen">Wissen</Link>
             <Link href="/glossar">Glossar</Link>
-            <Link href="/ausruestung">Ausrüstung</Link>
             <Link href="/mein-grow">Mein Grow</Link>
+            <Link href="/faq">FAQ</Link>
           </div>
         </div>
         <div>
