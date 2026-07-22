@@ -17,6 +17,7 @@ import { GROW_PROJECTS_CHANGED_EVENT, loadProjects } from "@/lib/storage";
 import { Breadcrumbs } from "./breadcrumbs";
 import { Button, Notice } from "./ui";
 import { ThemeToggle } from "./theme-toggle";
+import { GlobalSearch } from "./global-search";
 
 const links = [
   [/^\/$/, "Start", "/"],
@@ -91,7 +92,7 @@ export function Header() {
         <div className="container-page flex h-16 items-center justify-between">
           <Link
             href="/"
-            className="flex items-center gap-2 font-serif text-xl font-bold"
+            className="flex shrink-0 items-center gap-2 font-serif text-xl font-bold"
           >
             <span className="grid size-9 place-items-center rounded-full bg-gradient-to-br from-moss to-forest text-cream shadow-md ring-2 ring-moss/15">
               <CannabisLeafLogo className="size-6" />
@@ -101,13 +102,13 @@ export function Header() {
           <div className="flex items-center gap-2">
             <nav
               aria-label="Hauptnavigation"
-              className="hidden items-center gap-1 lg:flex"
+              className="hidden items-center gap-1 xl:flex"
             >
               {links.map(([match, label, href]) => (
                 <Link
                   key={href}
                   className={cn(
-                    "inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold transition hover:bg-sage/15",
+                    "inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold transition hover:bg-sage/15",
                     match.test(path) ? "bg-forest text-cream" : "text-forest/75",
                   )}
                   href={href}
@@ -125,7 +126,7 @@ export function Header() {
             <ThemeToggle />
             <button
               onClick={() => setOpen(!open)}
-              className="grid size-11 place-items-center rounded-full border border-forest/15 lg:hidden"
+              className="grid size-11 place-items-center rounded-full border border-forest/15 xl:hidden"
               aria-label="Menü öffnen"
               aria-expanded={open}
             >
@@ -136,7 +137,7 @@ export function Header() {
         {open && (
           <nav
             aria-label="Mobile Navigation"
-            className="container-page grid gap-1 border-t border-forest/10 py-3 lg:hidden"
+            className="container-page grid gap-1 border-t border-forest/10 py-3 xl:hidden"
           >
             {links.map(([, label, href]) => (
               <Link
@@ -159,6 +160,11 @@ export function Header() {
             ))}
           </nav>
         )}
+        <div className="border-t border-forest/10 bg-sage/10">
+          <div className="container-page flex justify-end py-2">
+            <GlobalSearch />
+          </div>
+        </div>
       </header>
       <nav
         aria-label="Schnellnavigation"
